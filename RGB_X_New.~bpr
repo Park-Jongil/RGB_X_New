@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="RGB_X_New.exe"/>
+    <OBJFILES value="RGB_X_New.obj frmRGB_X_Main.obj frmDebugWindow.obj 
+      frmChangeMode_Confirm.obj frmSettingRange.obj frmCalculator.obj 
+      frmAlarmWindow.obj DatabaseFunction.obj frmEventLog.obj frmGraphMenu.obj 
+      frmDataAnalysis.obj frmCompanyTitle.obj frmGraph_Y_Axis.obj 
+      frmGraphUsage.obj frmGraphExcel.obj frmSettingMenu.obj 
+      frmSettingParameter.obj frmSettingCompensation.obj frmSettingControl.obj 
+      frmSettingSensorChange.obj frmSettingMaster.obj frmPasswordLogin.obj 
+      TypeConversion.obj"/>
+    <RESFILES value="RGB_X_New.res"/>
+    <IDLFILES value=""/>
+    <IDLGENFILES value=""/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES) frmRGB_X_Main.dfm frmDebugWindow.dfm frmChangeMode_Confirm.dfm 
+      frmSettingRange.dfm frmCalculator.dfm frmAlarmWindow.dfm frmEventLog.dfm 
+      frmGraphMenu.dfm frmDataAnalysis.dfm frmCompanyTitle.dfm 
+      frmGraph_Y_Axis.dfm frmGraphUsage.dfm frmGraphExcel.dfm frmSettingMenu.dfm 
+      frmSettingParameter.dfm frmSettingCompensation.dfm frmSettingControl.dfm 
+      frmSettingSensorChange.dfm frmSettingMaster.dfm frmPasswordLogin.dfm"/>
+    <LIBFILES value="sqlite3.lib"/>
+    <LIBRARIES value="tee.lib dclocx.lib bdertl.lib VclSmp.lib vcldb.lib dbrtl.lib vclx.lib 
+      tmsc6.lib CPortLibCB6.lib vcwb6.lib WCC6.lib rtl.lib vcl.lib"/>
+    <SPARELIBS value="vcl.lib rtl.lib WCC6.lib vcwb6.lib CPortLibCB6.lib tmsc6.lib vclx.lib 
+      dbrtl.lib vcldb.lib VclSmp.lib bdertl.lib dclocx.lib tee.lib"/>
+    <PACKAGES value="vcl.bpi rtl.bpi dbrtl.bpi adortl.bpi vcldb.bpi vclx.bpi bdertl.bpi 
+      vcldbx.bpi ibxpress.bpi dsnap.bpi cds.bpi bdecds.bpi qrpt.bpi teeui.bpi 
+      teedb.bpi tee.bpi dss.bpi teeqr.bpi visualclx.bpi visualdbclx.bpi 
+      dsnapcrba.bpi dsnapcon.bpi bcbsmp.bpi vclie.bpi xmlrtl.bpi inet.bpi 
+      inetdbbde.bpi inetdbxpress.bpi inetdb.bpi nmfast.bpi webdsnap.bpi 
+      bcbie.bpi websnap.bpi soaprtl.bpi dclocx.bpi dbexpress.bpi dbxcds.bpi 
+      bcb2kaxserver.bpi CPortLibCB6.bpi tmsc6.bpi VclSmp.bpi vcwb6.bpi WCC6.bpi"/>
+    <PATHCPP value=".;"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value="_DEBUG"/>
+    <SYSDEFINES value="NO_STRICT"/>
+    <MAINSOURCE value="RGB_X_New.cpp"/>
+    <INCLUDEPATH value="C:\Borland\Components\TmsPack;C:\Borland\Components\CPort\Source;C:\Borland\Components\TmsIW;C:\Borland\Components\WCPack;C:\Borland\CBuilder6\Bin;&quot;D:\Source\WorkCPP\Work2021\93. RGB_X&quot;;$(BCB)\include;$(BCB)\include\vcl"/>
+    <LIBPATH value="C:\Borland\Components\TmsPack;C:\Borland\Components\CPort\Source;C:\Borland\Components\TmsIW;C:\Borland\Components\WCPack;C:\Borland\CBuilder6\Bin;&quot;D:\Source\WorkCPP\Work2021\93. RGB_X&quot;;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <IDLCFLAGS value="-IC:\Borland\Components\TmsPack -IC:\Borland\Components\CPort\Source 
+      -IC:\Borland\Components\TmsIW -IC:\Borland\Components\WCPack 
+      -IC:\Borland\CBuilder6\Bin -I&quot;D:\Source\WorkCPP\Work2021\93. RGB_X&quot; 
+      -I$(BCB)\include -I$(BCB)\include\vcl -src_suffix cpp -D_DEBUG -boa"/>
+    <CFLAG1 value="-Od -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -X- -r- -a1 -b- -k -y -v -vi- -c 
+      -tW -tWM"/>
+    <PFLAGS value="-$YD -$W -$O- -$A8 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value="-D&quot;&quot; -aa -Tpe -x -Gn -v"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0w32.obj sysinit.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cp32mt.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="RGB_X_New.res" FORMNAME="" UNITNAME="RGB_X_New.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="RGB_X_New.cpp" FORMNAME="" UNITNAME="RGB_X_New" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmRGB_X_Main.cpp" FORMNAME="frm_RGB_X_Main" UNITNAME="frmRGB_X_Main" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmDebugWindow.cpp" FORMNAME="frm_DebugWindow" UNITNAME="frmDebugWindow" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmChangeMode_Confirm.cpp" FORMNAME="frm_ChangeMode_Confirm" UNITNAME="frmChangeMode_Confirm" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmSettingRange.cpp" FORMNAME="frm_SettingRange" UNITNAME="frmSettingRange" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmCalculator.cpp" FORMNAME="frm_Calculator" UNITNAME="frmCalculator" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmAlarmWindow.cpp" FORMNAME="frm_AlarmWindow" UNITNAME="frmAlarmWindow" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="sqlite3.lib" FORMNAME="" UNITNAME="sqlite3.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="DatabaseFunction.cpp" FORMNAME="" UNITNAME="DatabaseFunction" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmEventLog.cpp" FORMNAME="frm_EventLog" UNITNAME="frmEventLog" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmGraphMenu.cpp" FORMNAME="frm_GraphMenu" UNITNAME="frmGraphMenu" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmDataAnalysis.cpp" FORMNAME="frm_DataAnalysis" UNITNAME="frmDataAnalysis" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmCompanyTitle.cpp" FORMNAME="frm_CompanyTitle" UNITNAME="frmCompanyTitle" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmGraph_Y_Axis.cpp" FORMNAME="frm_Graph_Y_Axis" UNITNAME="frmGraph_Y_Axis" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmGraphUsage.cpp" FORMNAME="frm_GraphUsage" UNITNAME="frmGraphUsage" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmGraphExcel.cpp" FORMNAME="frm_GraphExcel" UNITNAME="frmGraphExcel" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmSettingMenu.cpp" FORMNAME="frm_SettingMenu" UNITNAME="frmSettingMenu" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmSettingParameter.cpp" FORMNAME="frm_SettingParameter" UNITNAME="frmSettingParameter" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmSettingCompensation.cpp" FORMNAME="frm_SettingCompensation" UNITNAME="frmSettingCompensation" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmSettingControl.cpp" FORMNAME="frm_SettingControl" UNITNAME="frmSettingControl" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmSettingSensorChange.cpp" FORMNAME="frm_SettingSensorChange" UNITNAME="frmSettingSensorChange" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmSettingMaster.cpp" FORMNAME="frm_SettingMaster" UNITNAME="frmSettingMaster" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmPasswordLogin.cpp" FORMNAME="frm_PasswordLogin" UNITNAME="frmPasswordLogin" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="TypeConversion.cpp" FORMNAME="" UNITNAME="TypeConversion" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1042
+CodePage=949
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[CORBA]
+AddServerUnit=1
+AddClientUnit=1
+PrecompiledHeaders=1
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+</PROJECT>

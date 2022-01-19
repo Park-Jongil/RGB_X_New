@@ -1,0 +1,12 @@
+//---------------------------------------------------------------------------
+
+#ifndef TypeConversionH
+#define TypeConversionH
+unsigned short int Convert_Endian(unsigned short int iChkData);
+void  TypeConversion(SensorData *pChkPnt);
+void  TypeConversion(StatusData *pChkPnt);
+void  TypeConversion(Sensor_ShiftData *pChkPnt);
+void  TypeConversion(OnOff_TimeData *pChkPnt);
+void  TypeConversion(UCL_SET_DATA *pChkPnt);
+//---------------------------------------------------------------------------
+#endif

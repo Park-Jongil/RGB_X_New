@@ -1,0 +1,88 @@
+//---------------------------------------------------------------------------
+#pragma hdrstop
+
+#include "UserDefine.h"
+#include "TypeConversion.h"
+
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+//---------------------------------------------------------------------------
+unsigned short int Convert_Endian(unsigned short int iChkData)
+{
+  unsigned short int   iChkRet;
+
+  iChkRet = (iChkData%0x100)*0x100 + (iChkData/0x100);
+  return(iChkRet);
+}
+
+//---------------------------------------------------------------------------
+void  TypeConversion(SensorData *pChkPnt)
+{
+  pChkPnt->FQ_R = Convert_Endian(pChkPnt->FQ_R);
+  pChkPnt->FQ_G = Convert_Endian(pChkPnt->FQ_G);
+  pChkPnt->FQ_B = Convert_Endian(pChkPnt->FQ_B);
+  pChkPnt->ORP = Convert_Endian(pChkPnt->ORP);
+  pChkPnt->HCL = Convert_Endian(pChkPnt->HCL);
+  pChkPnt->SG = Convert_Endian(pChkPnt->SG);
+  pChkPnt->LQ_TEMP = Convert_Endian(pChkPnt->LQ_TEMP);
+}
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+void  TypeConversion(StatusData *pChkPnt)
+{
+  pChkPnt->R_SHIFT = Convert_Endian(pChkPnt->R_SHIFT);
+  pChkPnt->G_SHIFT = Convert_Endian(pChkPnt->G_SHIFT);
+  pChkPnt->B_SHIFT = Convert_Endian(pChkPnt->B_SHIFT);
+  pChkPnt->ORP_SHIFT = Convert_Endian(pChkPnt->ORP_SHIFT);
+  pChkPnt->HCL_SHIFT = Convert_Endian(pChkPnt->HCL_SHIFT);
+  pChkPnt->SG_SHIFT = Convert_Endian(pChkPnt->SG_SHIFT);
+  pChkPnt->TEMP_SHIFT = Convert_Endian(pChkPnt->TEMP_SHIFT);
+  pChkPnt->RGB_UCL = Convert_Endian(pChkPnt->RGB_UCL);
+  pChkPnt->RGB_SET = Convert_Endian(pChkPnt->RGB_SET);
+  pChkPnt->RGB_LCL = Convert_Endian(pChkPnt->RGB_LCL);
+  pChkPnt->ORP_UCL = Convert_Endian(pChkPnt->ORP_UCL);
+  pChkPnt->ORP_SET = Convert_Endian(pChkPnt->ORP_SET);
+  pChkPnt->ORP_LCL = Convert_Endian(pChkPnt->ORP_LCL);
+  pChkPnt->HCL_UCL = Convert_Endian(pChkPnt->HCL_UCL);
+  pChkPnt->HCL_SET = Convert_Endian(pChkPnt->HCL_SET);
+  pChkPnt->HCL_LCL = Convert_Endian(pChkPnt->HCL_LCL);
+  pChkPnt->SG_UCL = Convert_Endian(pChkPnt->SG_UCL);
+  pChkPnt->SG_SET = Convert_Endian(pChkPnt->SG_SET);
+  pChkPnt->SG_LCL = Convert_Endian(pChkPnt->SG_LCL);
+  pChkPnt->TEMP_UCL = Convert_Endian(pChkPnt->TEMP_UCL);
+  pChkPnt->TEMP_LCL = Convert_Endian(pChkPnt->TEMP_LCL);
+}
+//---------------------------------------------------------------------------
+void  TypeConversion(Sensor_ShiftData *pChkPnt)
+{
+  pChkPnt->R_SHIFT = Convert_Endian(pChkPnt->R_SHIFT);
+  pChkPnt->G_SHIFT = Convert_Endian(pChkPnt->G_SHIFT);
+  pChkPnt->B_SHIFT = Convert_Endian(pChkPnt->B_SHIFT);
+  pChkPnt->ORP_SHIFT = Convert_Endian(pChkPnt->ORP_SHIFT);
+  pChkPnt->HCL_SHIFT = Convert_Endian(pChkPnt->HCL_SHIFT);
+  pChkPnt->SG_SHIFT = Convert_Endian(pChkPnt->SG_SHIFT);
+  pChkPnt->TEMP_SHIFT = Convert_Endian(pChkPnt->TEMP_SHIFT);
+}
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
+void  TypeConversion(UCL_SET_DATA *pChkPnt)
+{
+  pChkPnt->RGB_UCL = Convert_Endian(pChkPnt->RGB_UCL);
+  pChkPnt->RGB_SET = Convert_Endian(pChkPnt->RGB_SET);
+  pChkPnt->RGB_LCL = Convert_Endian(pChkPnt->RGB_LCL);
+  pChkPnt->ORP_UCL = Convert_Endian(pChkPnt->ORP_UCL);
+  pChkPnt->ORP_SET = Convert_Endian(pChkPnt->ORP_SET);
+  pChkPnt->ORP_LCL = Convert_Endian(pChkPnt->ORP_LCL);
+  pChkPnt->HCL_UCL = Convert_Endian(pChkPnt->HCL_UCL);
+  pChkPnt->HCL_SET = Convert_Endian(pChkPnt->HCL_SET);
+  pChkPnt->HCL_LCL = Convert_Endian(pChkPnt->HCL_LCL);
+  pChkPnt->SG_UCL = Convert_Endian(pChkPnt->SG_UCL);
+  pChkPnt->SG_SET = Convert_Endian(pChkPnt->SG_SET);
+  pChkPnt->SG_LCL = Convert_Endian(pChkPnt->SG_LCL);
+  pChkPnt->TEMP_UCL = Convert_Endian(pChkPnt->TEMP_UCL);
+  pChkPnt->TEMP_LCL = Convert_Endian(pChkPnt->TEMP_LCL);
+}
+
+
+
