@@ -109,6 +109,7 @@ __published:	// IDE-managed Components
 private:	// User declarations
   TImage          *pBufImage;
   int             iAutoMode;    // 0x00:Manual , 0x01:Auto
+  int             iCommCount;       //  통신상태를 파악하기 위한 변수(초당 1씩 증가. 데이터가 안오면 늘어남)
   int             iRecvCount;
   unsigned char   szRecvBuf[1024];
   

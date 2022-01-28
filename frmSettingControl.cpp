@@ -5,6 +5,7 @@
 
 #include "UserDefine.h"
 #include "DatabaseFunction.h"
+#include "frmControl_Confirm.h"
 #include "frmSettingControl.h"
 #include "frmRGB_X_Main.h"
 //---------------------------------------------------------------------------
@@ -75,12 +76,14 @@ void __fastcall Tfrm_SettingControl::WCImageButton1Click(TObject *Sender)
   char  szSendData[32] = { 0x00, };
 
   if (stDeviceConfig.CurStatus.ModePump.bit8.ONOFF_HBC==0x00) {   // 0:HBC , 1:On/OFF
-    ModePump.Value = stDeviceConfig.CurSensor.ModePump.Value;
-    ModePump.bit8.ONOFF_HBC = 0x01;
-    szSendData[0] = ModePump.Value;
-    frm_RGB_X_Main->Make_SendMessage(CMD_MODE_N_PUMP,0x01,szSendData);     // Request Device Status
-    stDeviceConfig.CurStatus.ModePump.bit8.ONOFF_HBC = 0x01;
-    FormShow(NULL);
+    if (frm_Control_Confirm->ShowModal()==mrOk) {   // OK 클릭시
+      ModePump.Value = stDeviceConfig.CurSensor.ModePump.Value;
+      ModePump.bit8.ONOFF_HBC = 0x01;
+      szSendData[0] = ModePump.Value;
+      frm_RGB_X_Main->Make_SendMessage(CMD_MODE_N_PUMP,0x01,szSendData);     // Request Device Status
+      stDeviceConfig.CurStatus.ModePump.bit8.ONOFF_HBC = 0x01;
+      FormShow(NULL);
+    }
   }
 }
 //---------------------------------------------------------------------------
@@ -90,12 +93,14 @@ void __fastcall Tfrm_SettingControl::WCImageButton2Click(TObject *Sender)
   char  szSendData[32] = { 0x00, };
 
   if (stDeviceConfig.CurStatus.ModePump.bit8.ONOFF_HBC==0x01) {   // 0:HBC , 1:On/OFF
-    ModePump.Value = stDeviceConfig.CurSensor.ModePump.Value;
-    ModePump.bit8.ONOFF_HBC = 0x00;
-    szSendData[0] = ModePump.Value;
-    frm_RGB_X_Main->Make_SendMessage(CMD_MODE_N_PUMP,0x01,szSendData);     // Request Device Status
-    stDeviceConfig.CurStatus.ModePump.bit8.ONOFF_HBC = 0x00;
-    FormShow(NULL);
+    if (frm_Control_Confirm->ShowModal()==mrOk) {   // OK 클릭시
+      ModePump.Value = stDeviceConfig.CurSensor.ModePump.Value;
+      ModePump.bit8.ONOFF_HBC = 0x00;
+      szSendData[0] = ModePump.Value;
+      frm_RGB_X_Main->Make_SendMessage(CMD_MODE_N_PUMP,0x01,szSendData);     // Request Device Status
+      stDeviceConfig.CurStatus.ModePump.bit8.ONOFF_HBC = 0x00;
+      FormShow(NULL);
+    }
   }
 }
 //---------------------------------------------------------------------------
@@ -105,12 +110,14 @@ void __fastcall Tfrm_SettingControl::WCImageButton3Click(TObject *Sender)
   char  szSendData[32] = { 0x00, };
 
   if (stDeviceConfig.CurStatus.ModePump.bit8.RGB_ORP==0x00) {     // 0:ORP , 1:RGB
-    ModePump.Value = stDeviceConfig.CurSensor.ModePump.Value;
-    ModePump.bit8.RGB_ORP = 0x01;
-    szSendData[0] = ModePump.Value;
-    frm_RGB_X_Main->Make_SendMessage(CMD_MODE_N_PUMP,0x01,szSendData);     // Request Device Status
-    stDeviceConfig.CurStatus.ModePump.bit8.RGB_ORP = 0x01;
-    FormShow(NULL);
+    if (frm_Control_Confirm->ShowModal()==mrOk) {   // OK 클릭시
+      ModePump.Value = stDeviceConfig.CurSensor.ModePump.Value;
+      ModePump.bit8.RGB_ORP = 0x01;
+      szSendData[0] = ModePump.Value;
+      frm_RGB_X_Main->Make_SendMessage(CMD_MODE_N_PUMP,0x01,szSendData);     // Request Device Status
+      stDeviceConfig.CurStatus.ModePump.bit8.RGB_ORP = 0x01;
+      FormShow(NULL);
+    }
   }
 }
 //---------------------------------------------------------------------------
@@ -120,12 +127,14 @@ void __fastcall Tfrm_SettingControl::WCImageButton4Click(TObject *Sender)
   char  szSendData[32] = { 0x00, };
 
   if (stDeviceConfig.CurStatus.ModePump.bit8.RGB_ORP==0x01) {     // 0:ORP , 1:RGB
-    ModePump.Value = stDeviceConfig.CurSensor.ModePump.Value;
-    ModePump.bit8.RGB_ORP = 0x00;
-    szSendData[0] = ModePump.Value;
-    frm_RGB_X_Main->Make_SendMessage(CMD_MODE_N_PUMP,0x01,szSendData);     // Request Device Status
-    stDeviceConfig.CurStatus.ModePump.bit8.RGB_ORP = 0x00;
-    FormShow(NULL);
+    if (frm_Control_Confirm->ShowModal()==mrOk) {   // OK 클릭시
+      ModePump.Value = stDeviceConfig.CurSensor.ModePump.Value;
+      ModePump.bit8.RGB_ORP = 0x00;
+      szSendData[0] = ModePump.Value;
+      frm_RGB_X_Main->Make_SendMessage(CMD_MODE_N_PUMP,0x01,szSendData);     // Request Device Status
+      stDeviceConfig.CurStatus.ModePump.bit8.RGB_ORP = 0x00;
+      FormShow(NULL);
+    }
   }
 }
 //---------------------------------------------------------------------------
@@ -133,19 +142,31 @@ void __fastcall Tfrm_SettingControl::WCImageButton5Click(TObject *Sender)
 {
   char      szFileName[1024];
 
-  if (stDeviceConfig.Control_SubHCL2 == 0x00) {
-    stDeviceConfig.Control_SubHCL1 = !stDeviceConfig.Control_SubHCL1;
-    if (stDeviceConfig.Control_SubHCL1==0x01) {
-      ImageChange_byID(WCImageButton5,0x09);
-    } else {
-      ImageChange_byID(WCImageButton5,0x08);
-    }
-    try {
-      strcpy(szFileName,ExtractFilePath(Application->ExeName).c_str());
-      strcat(szFileName,"Config.ini");
-      WritePrivateProfileString("CONTROL","SubHCL1" ,IntToStr(stDeviceConfig.Control_SubHCL1).c_str(),szFileName);
-    } catch(...) {
-    }
+  if (stDeviceConfig.Control_SubHCL1==0x00 && stDeviceConfig.Control_SubHCL2==0x00) {
+    stDeviceConfig.Control_SubHCL1 = 1;
+  } else if (stDeviceConfig.Control_SubHCL1==0x00 && stDeviceConfig.Control_SubHCL2==0x01) {
+    stDeviceConfig.Control_SubHCL1 = 1;
+    stDeviceConfig.Control_SubHCL2 = 0;
+  } else if (stDeviceConfig.Control_SubHCL1==0x01 && stDeviceConfig.Control_SubHCL2==0x00) {
+    stDeviceConfig.Control_SubHCL1 = 0;
+    stDeviceConfig.Control_SubHCL2 = 0;
+  }
+  if (stDeviceConfig.Control_SubHCL1==0x01) {
+    ImageChange_byID(WCImageButton5,0x09);
+  } else {
+    ImageChange_byID(WCImageButton5,0x08);
+  }
+  if (stDeviceConfig.Control_SubHCL2==0x01) {
+    ImageChange_byID(WCImageButton7,0x0B);
+  } else {
+    ImageChange_byID(WCImageButton7,0x0A);
+  }
+  try {
+    strcpy(szFileName,ExtractFilePath(Application->ExeName).c_str());
+    strcat(szFileName,"Config.ini");
+    WritePrivateProfileString("CONTROL","SubHCL1" ,IntToStr(stDeviceConfig.Control_SubHCL1).c_str(),szFileName);
+    WritePrivateProfileString("CONTROL","SubHCL2" ,IntToStr(stDeviceConfig.Control_SubHCL2).c_str(),szFileName);
+  } catch(...) {
   }
 }
 //---------------------------------------------------------------------------
@@ -154,19 +175,31 @@ void __fastcall Tfrm_SettingControl::WCImageButton7Click(TObject *Sender)
 {
   char      szFileName[1024];
 
-  if (stDeviceConfig.Control_SubHCL1 == 0x00) {
-    stDeviceConfig.Control_SubHCL2 = !stDeviceConfig.Control_SubHCL2;
-    if (stDeviceConfig.Control_SubHCL2==0x01) {
-      ImageChange_byID(WCImageButton7,0x0B);
-    } else {
-      ImageChange_byID(WCImageButton7,0x0A);
-    }
-    try {
-      strcpy(szFileName,ExtractFilePath(Application->ExeName).c_str());
-      strcat(szFileName,"Config.ini");
-      WritePrivateProfileString("CONTROL","SubHCL2" ,IntToStr(stDeviceConfig.Control_SubHCL2).c_str(),szFileName);
-    } catch(...) {
-    }
+  if (stDeviceConfig.Control_SubHCL1==0x00 && stDeviceConfig.Control_SubHCL2==0x00) {
+    stDeviceConfig.Control_SubHCL2 = 1;
+  } else if (stDeviceConfig.Control_SubHCL1==0x01 && stDeviceConfig.Control_SubHCL2==0x00) {
+    stDeviceConfig.Control_SubHCL1 = 0;
+    stDeviceConfig.Control_SubHCL2 = 1;
+  } else if (stDeviceConfig.Control_SubHCL1==0x00 && stDeviceConfig.Control_SubHCL2==0x01) {
+    stDeviceConfig.Control_SubHCL1 = 0;
+    stDeviceConfig.Control_SubHCL2 = 0;
+  }
+  if (stDeviceConfig.Control_SubHCL1==0x01) {
+    ImageChange_byID(WCImageButton5,0x09);
+  } else {
+    ImageChange_byID(WCImageButton5,0x08);
+  }
+  if (stDeviceConfig.Control_SubHCL2==0x01) {
+    ImageChange_byID(WCImageButton7,0x0B);
+  } else {
+    ImageChange_byID(WCImageButton7,0x0A);
+  }
+  try {
+    strcpy(szFileName,ExtractFilePath(Application->ExeName).c_str());
+    strcat(szFileName,"Config.ini");
+    WritePrivateProfileString("CONTROL","SubHCL1" ,IntToStr(stDeviceConfig.Control_SubHCL1).c_str(),szFileName);
+    WritePrivateProfileString("CONTROL","SubHCL2" ,IntToStr(stDeviceConfig.Control_SubHCL2).c_str(),szFileName);
+  } catch(...) {
   }
 }
 //---------------------------------------------------------------------------

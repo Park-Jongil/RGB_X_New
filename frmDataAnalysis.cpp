@@ -216,6 +216,10 @@ void __fastcall Tfrm_DataAnalysis::BarChart_BasicSetting(TImage *pBufImg,int iDa
       } else if (iDataType==0x04) {
         iPy = (iCurData==0x00) ? iHeight : 0;
       } else if (iDataType==0x05) {
+/*        if (iCurData==0x00) iPy = 0;
+         else if ( 1 <= iCurData && iCurData <= 20) iPy = iHeight/2;
+         else if (21 <= iCurData && iCurData <= 60) iPy = iHeight;
+*/
         iPy = (1-(iCurData/60.0)) * iHeight;
       }
       pBarImage->Canvas->MoveTo(iPx,iHeight);

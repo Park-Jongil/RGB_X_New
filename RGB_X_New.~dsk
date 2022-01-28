@@ -1,44 +1,39 @@
 [Closed Files]
-File_0=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmDataAnalysis.cpp',0,1,115,1,138,1,0
-File_1=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraphPopup.cpp',0,1,1,1,1,1,0
-File_2=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingPopup.cpp',0,1,1,1,1,1,0
-File_3=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraph_Y_Axis.cpp',0,1,28,86,43,1,0
-File_4=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraphExcel.cpp',0,1,1,1,1,1,0
-File_5=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraphUsage.cpp',0,1,1,1,1,1,0
-File_6=SourceModule,'D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmGraph_Y_Axis.cpp',0,1,28,66,91,1,0
-File_7=SourceModule,'D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmGraphUsage.cpp',0,1,1,1,1,1,0
-File_8=SourceModule,'D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmSettingParameter.cpp',0,1,373,124,42,1,0
+File_0=SourceModule,'D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmSettingParameter.cpp',0,1,269,61,285,1,0
+File_1=SourceModule,'D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmGraph_Y_Axis.cpp',0,1,45,1,70,1,0
+File_2=SourceModule,'D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmDataAnalysis.cpp',0,1,287,1,312,1,0
+File_3=SourceModule,'D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmSettingRange.cpp',0,1,37,1,1,1,0
+File_4=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmDataAnalysis.cpp',0,1,115,1,138,1,0
+File_5=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraphPopup.cpp',0,1,1,1,1,1,0
+File_6=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingPopup.cpp',0,1,1,1,1,1,0
+File_7=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraph_Y_Axis.cpp',0,1,28,86,43,1,0
+File_8=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraphExcel.cpp',0,1,1,1,1,1,0
+File_9=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraphUsage.cpp',0,1,1,1,1,1,0
 
 [Modules]
-Module0=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingRange.cpp
-Module1=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingParameter.cpp
-Module2=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmRGB_X_Main.cpp
-Module3=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmCalculator.cpp
-Module4=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\UserDefine.h
-Count=5
+Module0=D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmRGB_X_Main.cpp
+Module1=D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmSettingPopup.cpp
+Module2=D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmGraphPopup.cpp
+Module3=D:\Source\WorkCPP\Work2021\96. RGB_X_New\RGB_X_New.bpr
+Count=4
 EditWindowCount=1
 
-[D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingRange.cpp]
+[D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmRGB_X_Main.cpp]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=1
+
+[D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmSettingPopup.cpp]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingParameter.cpp]
+[D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmGraphPopup.cpp]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmRGB_X_Main.cpp]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
-[D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmCalculator.cpp]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
-[D:\Source\WorkCpp6\Work2021\96. RGB_X_New\UserDefine.h]
+[D:\Source\WorkCPP\Work2021\96. RGB_X_New\RGB_X_New.bpr]
 ModuleType=SourceModule
 FormState=0
 FormOnTop=0
@@ -47,18 +42,13 @@ FormOnTop=0
 FormState=0
 FormOnTop=0
 
-[D:\Source\WorkCpp6\Work2021\96. RGB_X_New\RGB_X_New.bpr]
-FormState=0
-FormOnTop=0
-
 [EditWindow0]
-ViewCount=5
-CurrentView=2
+ViewCount=4
+CurrentView=1
 View0=0
 View1=1
 View2=2
 View3=3
-View4=4
 CodeExplorer=CodeExplorer@EditWindow0
 MessageView=MessageView@EditWindow0
 ClassHierarchy=ClassHierarchy@EditWindow0
@@ -68,51 +58,44 @@ State=0
 Left=184
 Top=116
 Width=1776
-Height=1130
+Height=964
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=1760
-ClientHeight=1091
+ClientHeight=925
 LeftPanelSize=170
 LeftPanelClients=CodeExplorer@EditWindow0
 LeftPanelData=000004000000000000000000000000000000000000000000000100000000000000000C000000436F64654578706C6F726572FFFFFFFF
 RightPanelSize=0
 BottomPanelSize=0
 BottomPanelClients=MessageView@EditWindow0
-BottomPanelData=00000400010000000B0000004D65737361676556696577E006000000000000025500000000000000010000000000000000000000000100000000E0060000000000000100000000E006000000000000FFFFFFFF
+BottomPanelData=00000400010000000B0000004D65737361676556696577E006000000000000025500000000000000010000000000000000000000000100000000E0060000000000000100000000E0060000000000000100000000E00600000B0000004D65737361676556696577FFFFFFFF
 
 [View0]
-Module=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmRGB_X_Main.cpp
+Module=D:\Source\WorkCPP\Work2021\96. RGB_X_New\RGB_X_New.cpp
 CursorX=1
-CursorY=940
-TopLine=937
+CursorY=1
+TopLine=1
 LeftCol=1
 
 [View1]
-Module=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingParameter.cpp
-CursorX=36
-CursorY=302
-TopLine=274
+Module=D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmRGB_X_Main.cpp
+CursorX=43
+CursorY=887
+TopLine=866
 LeftCol=1
 
 [View2]
-Module=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingRange.cpp
-CursorX=36
-CursorY=56
-TopLine=148
+Module=D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmSettingPopup.cpp
+CursorX=1
+CursorY=1
+TopLine=1
 LeftCol=1
 
 [View3]
-Module=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmCalculator.cpp
+Module=D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmGraphPopup.cpp
 CursorX=28
-CursorY=41
-TopLine=25
-LeftCol=1
-
-[View4]
-Module=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\UserDefine.h
-CursorX=37
-CursorY=21
+CursorY=10
 TopLine=1
 LeftCol=1
 
@@ -121,7 +104,7 @@ Count=0
 
 [Breakpoints]
 Count=1
-Breakpoint0='D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmDataAnalysis.cpp',312,'',0,1,'',1,0,0,'',1,'','',''
+Breakpoint0='D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmGraph_Y_Axis.cpp',38,'',0,1,'',1,0,0,'',1,'','',''
 
 [AddressBreakpoints]
 Count=0
@@ -279,7 +262,7 @@ LRDockWidth=190
 Dockable=1
 SplitPos=85
 ArrangeBy=Name
-SelectedItem=Name
+SelectedItem=Picture_MouseOver
 ExpandedItems=Options
 HiddenCategories=
 
@@ -383,11 +366,11 @@ State=0
 Left=0
 Top=12
 Width=170
-Height=1079
+Height=913
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=170
-ClientHeight=1079
+ClientHeight=913
 TBDockHeight=388
 LRDockWidth=170
 Dockable=1

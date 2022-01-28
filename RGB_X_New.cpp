@@ -25,6 +25,7 @@ USEFORM("frmSettingMaster.cpp", frm_SettingMaster);
 USEFORM("frmPasswordLogin.cpp", frm_PasswordLogin);
 USEFORM("frmGraphPopup.cpp", frm_GraphPopup);
 USEFORM("frmSettingPopup.cpp", frm_SettingPopup);
+USEFORM("frmControl_Confirm.cpp", frm_Control_Confirm);
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
@@ -53,6 +54,7 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
      Application->CreateForm(__classid(Tfrm_PasswordLogin), &frm_PasswordLogin);
      Application->CreateForm(__classid(Tfrm_GraphPopup), &frm_GraphPopup);
      Application->CreateForm(__classid(Tfrm_SettingPopup), &frm_SettingPopup);
+     Application->CreateForm(__classid(Tfrm_Control_Confirm), &frm_Control_Confirm);
      Application->Run();
   }
   catch (Exception &exception)

@@ -45,6 +45,7 @@ __fastcall Tfrm_RGB_X_Main::Tfrm_RGB_X_Main(TComponent* Owner)
     stDeviceConfig.Graph_TEMP[i] = 0;
   }
   strcpy(stDeviceConfig.szChangeCheckDate,"");
+  iCommCount = 0x00;
   iAutoMode = 0x01;
 }
 //---------------------------------------------------------------------------
@@ -205,7 +206,17 @@ void __fastcall Tfrm_RGB_X_Main::Timer1Timer(TObject *Sender)
   char        szCheckDate[32];
 
   Label1->Caption = Now().FormatString("yyyy-mm-dd hh:nn:ss");
+  if (iCommCount < 60) iCommCount = iCommCount + 1;
+  if (iCommCount == 60) {   // 1분동안 수신된 데이터가 없음을 의미함
+    strcpy(szCheckDate,Now().FormatString("yyyy-mm-dd hh:nn:ss").c_str());
+    DataBase_EventLog_Insert(szCheckDate,0x0B);   // 통신이 끊어졌습니다.
+    iCommCount = 61;
+  }
   strcpy(szCheckDate,Now().FormatString("yyyy-mm-dd").c_str());
+  if (strcmp(stDeviceConfig.szChangeCheckDate,szCheckDate)==0x00) {   // ORP 검사날자가 지났다.
+    DataBase_EventLog_Insert(szCheckDate,0x0D);   // ORP 교체필요
+    strcpy(stDeviceConfig.szChangeCheckDate,"");
+  }
 //
   getdate(&d);
   gettime(&t_Cur);
@@ -216,7 +227,6 @@ void __fastcall Tfrm_RGB_X_Main::Timer1Timer(TObject *Sender)
   }
   if (t_Cur.ti_hour < t_Pre.ti_hour) {  // 날자가  바뀌었을때 GrapgUsage 의 Daily 변수를 초기화
     CurDate = Now() - 1;
-    strcpy(szCheckDate,CurDate.FormatString("yyyy-mm-dd").c_str());
     DataBase_GraphUsage_Insert(szCheckDate,stDeviceConfig.HCL_Daily,stDeviceConfig.OXI_Daily,stDeviceConfig.H2O_Daily);
     stDeviceConfig.HCL_Daily = 0;
     stDeviceConfig.OXI_Daily = 0;
@@ -499,6 +509,7 @@ void __fastcall Tfrm_RGB_X_Main::ComPort1RxChar(TObject *Sender, int Count)
 {
   unsigned char  szBuffer[1024];
 
+  iCommCount = 0;
   CommRxTimer->Enabled = false;
   CommunicationStatus_SetImage(0x00,0x03);
   CommRxTimer->Enabled = true;
@@ -824,10 +835,14 @@ void __fastcall Tfrm_RGB_X_Main::Protocol_AlarmTable_Process()
     if (stDeviceConfig.CurSensor.Alarm2.bit8.TEMP_LCL_Alarm==0x01) {
       if (stDeviceConfig.PrevSensor.Alarm2.bit8.TEMP_LCL_Alarm==0x00) DataBase_EventLog_Insert(szCheckDate,0x0A);
     }
+    if (stDeviceConfig.CurSensor.Alarm2.bit8.CIRCURATING_PUMP==0x01) {
+      if (stDeviceConfig.PrevSensor.Alarm2.bit8.CIRCURATING_PUMP==0x00) DataBase_EventLog_Insert(szCheckDate,0x0C);   // 순환펌트 가동정지
+    }
+
     stDeviceStat.OXI_Pump = stDeviceStat.OXI_Pump + stDeviceConfig.CurSensor.ModePump.bit8.OXI_PUMP;
     stDeviceStat.HCL_Pump = stDeviceStat.HCL_Pump + stDeviceConfig.CurSensor.ModePump.bit8.HCL_PUMP;
     stDeviceStat.H2O_Pump = stDeviceStat.H2O_Pump + stDeviceConfig.CurSensor.ModePump.bit8.H2O_PUMP;
-    stDeviceStat.CircurPump = stDeviceStat.CircurPump + stDeviceConfig.CurSensor.Alarm2.bit8.CIRCURATING_PUMP;
+    stDeviceStat.CircurPump = stDeviceStat.CircurPump + (1-stDeviceConfig.CurSensor.Alarm2.bit8.CIRCURATING_PUMP);
 //  GraphUsage 에서 사용량을 관리할 변수들
     if (stDeviceConfig.CurSensor.ModePump.bit8.HCL_PUMP==0x01) {
       stDeviceConfig.HCL_Daily += stDeviceConfig.HCL_Capa / 60.0;

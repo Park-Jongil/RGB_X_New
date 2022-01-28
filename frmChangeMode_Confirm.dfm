@@ -1,6 +1,6 @@
 object frm_ChangeMode_Confirm: Tfrm_ChangeMode_Confirm
-  Left = 504
-  Top = 333
+  Left = 934
+  Top = 820
   BorderStyle = bsNone
   Caption = 'frm_ChangeMode_Confirm'
   ClientHeight = 341

@@ -42,19 +42,25 @@ void __fastcall Tfrm_SettingSensorChange::FormShow(TObject *Sender)
       DateTimePicker1->Date = Now();
     }
     if (strlen(stDeviceConfig.szChangeDate_ORP) > 8) {
-      sscanf(stDeviceConfig.szChangeDate_ORP,"%4d-%2d-%2d",&iYear,&iMonth,&iDay);
+      iYear = atoi(stDeviceConfig.szChangeDate_ORP);
+      iMonth = atoi(&stDeviceConfig.szChangeDate_ORP[5]);
+      iDay = atoi(&stDeviceConfig.szChangeDate_ORP[8]);
       DateTimePicker2->Date = EncodeDate(iYear,iMonth,iDay);
     } else {
       DateTimePicker2->Date = Now();
     }
     if (strlen(stDeviceConfig.szChangeDate_HCL) > 8) {
-      sscanf(stDeviceConfig.szChangeDate_HCL,"%4d-%2d-%2d",&iYear,&iMonth,&iDay);
+      iYear = atoi(stDeviceConfig.szChangeDate_HCL);
+      iMonth = atoi(&stDeviceConfig.szChangeDate_HCL[5]);
+      iDay = atoi(&stDeviceConfig.szChangeDate_HCL[8]);
       DateTimePicker3->Date = EncodeDate(iYear,iMonth,iDay);
     } else {
       DateTimePicker3->Date = Now();
     }
     if (strlen(stDeviceConfig.szChangeDate_SG) > 8) {
-      sscanf(stDeviceConfig.szChangeDate_SG,"%4d-%2d-%2d",&iYear,&iMonth,&iDay);
+      iYear = atoi(stDeviceConfig.szChangeDate_SG);
+      iMonth = atoi(&stDeviceConfig.szChangeDate_SG[5]);
+      iDay = atoi(&stDeviceConfig.szChangeDate_SG[8]);
       DateTimePicker4->Date = EncodeDate(iYear,iMonth,iDay);
     } else {
       DateTimePicker4->Date = Now();
@@ -76,6 +82,8 @@ void __fastcall Tfrm_SettingSensorChange::WCImageButton6Click(
     WritePrivateProfileString("SENSOR_CHANGE","CHANGEDATE_HCL" ,DateTimePicker3->Date.FormatString("yyyy-mm-dd").c_str(),szFileName);
     WritePrivateProfileString("SENSOR_CHANGE","CHANGEDATE_SG"  ,DateTimePicker4->Date.FormatString("yyyy-mm-dd").c_str(),szFileName);
     WritePrivateProfileString("SENSOR_CHANGE","ORP_Count" ,Label20->Caption.c_str(),szFileName);
+    CheckDate = DateTimePicker2->Date + stDeviceConfig.ORP_Count;
+    strcpy(stDeviceConfig.szChangeCheckDate,CheckDate.FormatString("yyyy-mm-dd").c_str());
   } catch(...) {
   }
   Close();

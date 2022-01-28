@@ -73,7 +73,9 @@ void __fastcall Tfrm_SettingSensorChange::FormShow(TObject *Sender)
 void __fastcall Tfrm_SettingSensorChange::WCImageButton6Click(
       TObject *Sender)
 {
-  char      szFileName[1024];
+  char        szFileName[1024];
+  TDateTime   CheckDate;
+
   try {
     strcpy(szFileName,ExtractFilePath(Application->ExeName).c_str());
     strcat(szFileName,"Config.ini");
@@ -82,6 +84,8 @@ void __fastcall Tfrm_SettingSensorChange::WCImageButton6Click(
     WritePrivateProfileString("SENSOR_CHANGE","CHANGEDATE_HCL" ,DateTimePicker3->Date.FormatString("yyyy-mm-dd").c_str(),szFileName);
     WritePrivateProfileString("SENSOR_CHANGE","CHANGEDATE_SG"  ,DateTimePicker4->Date.FormatString("yyyy-mm-dd").c_str(),szFileName);
     WritePrivateProfileString("SENSOR_CHANGE","ORP_Count" ,Label20->Caption.c_str(),szFileName);
+    CheckDate = DateTimePicker2->Date + stDeviceConfig.ORP_Count;
+    strcpy(stDeviceConfig.szChangeCheckDate,CheckDate.FormatString("yyyy-mm-dd").c_str());
   } catch(...) {
   }
   Close();

@@ -5,6 +5,7 @@
 
 #include "UserDefine.h"
 #include "DatabaseFunction.h"
+#include "frmControl_Confirm.h"
 #include "frmSettingControl.h"
 #include "frmRGB_X_Main.h"
 //---------------------------------------------------------------------------
@@ -133,16 +134,30 @@ void __fastcall Tfrm_SettingControl::WCImageButton5Click(TObject *Sender)
 {
   char      szFileName[1024];
 
-  stDeviceConfig.Control_SubHCL1 = !stDeviceConfig.Control_SubHCL1;
+  if (stDeviceConfig.Control_SubHCL1==0x00 && stDeviceConfig.Control_SubHCL2==0x00) {
+    stDeviceConfig.Control_SubHCL1 = 1;
+  } else if (stDeviceConfig.Control_SubHCL1==0x00 && stDeviceConfig.Control_SubHCL2==0x01) {
+    stDeviceConfig.Control_SubHCL1 = 1;
+    stDeviceConfig.Control_SubHCL2 = 0;
+  } else if (stDeviceConfig.Control_SubHCL1==0x01 && stDeviceConfig.Control_SubHCL2==0x00) {
+    stDeviceConfig.Control_SubHCL1 = 0;
+    stDeviceConfig.Control_SubHCL2 = 0;
+  }
   if (stDeviceConfig.Control_SubHCL1==0x01) {
     ImageChange_byID(WCImageButton5,0x09);
   } else {
     ImageChange_byID(WCImageButton5,0x08);
   }
+  if (stDeviceConfig.Control_SubHCL2==0x01) {
+    ImageChange_byID(WCImageButton7,0x0B);
+  } else {
+    ImageChange_byID(WCImageButton7,0x0A);
+  }
   try {
     strcpy(szFileName,ExtractFilePath(Application->ExeName).c_str());
     strcat(szFileName,"Config.ini");
     WritePrivateProfileString("CONTROL","SubHCL1" ,IntToStr(stDeviceConfig.Control_SubHCL1).c_str(),szFileName);
+    WritePrivateProfileString("CONTROL","SubHCL2" ,IntToStr(stDeviceConfig.Control_SubHCL2).c_str(),szFileName);
   } catch(...) {
   }
 }
@@ -152,7 +167,20 @@ void __fastcall Tfrm_SettingControl::WCImageButton7Click(TObject *Sender)
 {
   char      szFileName[1024];
 
-  stDeviceConfig.Control_SubHCL2 = !stDeviceConfig.Control_SubHCL2;
+  if (stDeviceConfig.Control_SubHCL1==0x00 && stDeviceConfig.Control_SubHCL2==0x00) {
+    stDeviceConfig.Control_SubHCL2 = 1;
+  } else if (stDeviceConfig.Control_SubHCL1==0x01 && stDeviceConfig.Control_SubHCL2==0x00) {
+    stDeviceConfig.Control_SubHCL1 = 0;
+    stDeviceConfig.Control_SubHCL2 = 1;
+  } else if (stDeviceConfig.Control_SubHCL1==0x00 && stDeviceConfig.Control_SubHCL2==0x01) {
+    stDeviceConfig.Control_SubHCL1 = 0;
+    stDeviceConfig.Control_SubHCL2 = 0;
+  }
+  if (stDeviceConfig.Control_SubHCL1==0x01) {
+    ImageChange_byID(WCImageButton5,0x09);
+  } else {
+    ImageChange_byID(WCImageButton5,0x08);
+  }
   if (stDeviceConfig.Control_SubHCL2==0x01) {
     ImageChange_byID(WCImageButton7,0x0B);
   } else {
@@ -161,6 +189,7 @@ void __fastcall Tfrm_SettingControl::WCImageButton7Click(TObject *Sender)
   try {
     strcpy(szFileName,ExtractFilePath(Application->ExeName).c_str());
     strcat(szFileName,"Config.ini");
+    WritePrivateProfileString("CONTROL","SubHCL1" ,IntToStr(stDeviceConfig.Control_SubHCL1).c_str(),szFileName);
     WritePrivateProfileString("CONTROL","SubHCL2" ,IntToStr(stDeviceConfig.Control_SubHCL2).c_str(),szFileName);
   } catch(...) {
   }
