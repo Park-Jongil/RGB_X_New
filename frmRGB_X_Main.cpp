@@ -63,6 +63,12 @@ void __fastcall Tfrm_RGB_X_Main::WCImageButton1Click(TObject *Sender)
 }
 
 //---------------------------------------------------------------------------
+void __fastcall Tfrm_RGB_X_Main::WCImageButton15Click(TObject *Sender)
+{
+  Application->Minimize();
+}
+
+//---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 void __fastcall Tfrm_RGB_X_Main::DeviceClient_Config_Load()
 {
@@ -863,8 +869,8 @@ void __fastcall Tfrm_RGB_X_Main::WCImageButton3Click(TObject *Sender)
 //  frm_GraphMenu->Left = this->Left + 450;
 //  frm_GraphMenu->Top  = this->Top + 150;
 //  frm_GraphMenu->ShowModal();
-  frm_GraphPopup->Left = this->Left + 470;
-  frm_GraphPopup->Top  = this->Top + 200;
+  frm_GraphPopup->Left = this->Left + 390;
+  frm_GraphPopup->Top  = this->Top + 150;
   frm_GraphPopup->ShowModal();
 }
 
@@ -877,8 +883,8 @@ void __fastcall Tfrm_RGB_X_Main::WCImageButton2Click(TObject *Sender)
 //  frm_SettingMenu->Left = this->Left + 210;
 //  frm_SettingMenu->Top  = this->Top + 150;
 //  frm_SettingMenu->ShowModal();
-  frm_SettingPopup->Left = this->Left + 470;
-  frm_SettingPopup->Top  = this->Top + 200;
+  frm_SettingPopup->Left = this->Left + 390;
+  frm_SettingPopup->Top  = this->Top + 150;
   frm_SettingPopup->ShowModal();
 }
 
@@ -1044,6 +1050,7 @@ void Tfrm_RGB_X_Main::LogMessage_Printf(const char *pFormat, ...)
   }
   fclose(fp);
 }
+
 
 
 

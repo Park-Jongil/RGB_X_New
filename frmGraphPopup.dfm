@@ -1,11 +1,11 @@
 object frm_GraphPopup: Tfrm_GraphPopup
-  Left = 1189
-  Top = 373
+  Left = 919
+  Top = 355
   BorderStyle = bsNone
   Caption = 'frm_GraphPopup'
-  ClientHeight = 432
-  ClientWidth = 500
-  Color = clBtnFace
+  ClientHeight = 601
+  ClientWidth = 609
+  Color = clBackground
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -17,11 +17,10 @@ object frm_GraphPopup: Tfrm_GraphPopup
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
-    Left = 0
-    Top = 0
+    Left = 54
+    Top = 96
     Width = 500
     Height = 432
-    Align = alClient
     Picture.Data = {
       0A544A504547496D616765D8000100FFD8FFE000104A46494600010001009600
       960000FFFE001F4C45414420546563686E6F6C6F6769657320496E632E205631
@@ -2081,20 +2080,5 @@ object frm_GraphPopup: Tfrm_GraphPopup
       005001401FFFD9}
     OnDblClick = Image1DblClick
     OnMouseDown = Image1MouseDown
-  end
-  object Label1: TLabel
-    Left = 16
-    Top = 16
-    Width = 41
-    Height = 16
-    Caption = 'Label1'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clYellow
-    Font.Height = -13
-    Font.Name = 'MS Sans Serif'
-    Font.Style = []
-    ParentFont = False
-    Transparent = True
-    Visible = False
   end
 end

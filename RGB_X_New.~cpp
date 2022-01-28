@@ -23,6 +23,8 @@ USEFORM("frmSettingControl.cpp", frm_SettingControl);
 USEFORM("frmSettingSensorChange.cpp", frm_SettingSensorChange);
 USEFORM("frmSettingMaster.cpp", frm_SettingMaster);
 USEFORM("frmPasswordLogin.cpp", frm_PasswordLogin);
+USEFORM("frmGraphPopup.cpp", frm_GraphPopup);
+USEFORM("frmSettingPopup.cpp", frm_SettingPopup);
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
@@ -49,6 +51,8 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
      Application->CreateForm(__classid(Tfrm_SettingSensorChange), &frm_SettingSensorChange);
      Application->CreateForm(__classid(Tfrm_SettingMaster), &frm_SettingMaster);
      Application->CreateForm(__classid(Tfrm_PasswordLogin), &frm_PasswordLogin);
+     Application->CreateForm(__classid(Tfrm_GraphPopup), &frm_GraphPopup);
+     Application->CreateForm(__classid(Tfrm_SettingPopup), &frm_SettingPopup);
      Application->Run();
   }
   catch (Exception &exception)

@@ -164,8 +164,8 @@ void __fastcall Tfrm_SettingParameter::WCImageButton8Click(TObject *Sender)
   frm_Calculator->Left = this->Left + 520;;
   frm_Calculator->Label1->Caption = Label7->Caption;
   if (frm_Calculator->ShowModal()==mrOk) {   //
-    Label7->Caption = frm_Calculator->szValue;
     stSetData.HCL_UCL = frm_Calculator->szValue.ToDouble() * 100.0;
+    Label7->Caption = FormatFloat("0.00",stSetData.HCL_UCL / 100.0);
     TypeConversion(&stSetData);
     frm_RGB_X_Main->Make_SendMessage(CMD_UCL_SET_LCL,sizeof(UCL_SET_DATA),(char*)&stSetData);
     TypeConversion(&stSetData);
@@ -179,8 +179,8 @@ void __fastcall Tfrm_SettingParameter::WCImageButton9Click(TObject *Sender)
   frm_Calculator->Left = this->Left + 520;;
   frm_Calculator->Label1->Caption = Label8->Caption;
   if (frm_Calculator->ShowModal()==mrOk) {   //
-    Label8->Caption = frm_Calculator->szValue;
     stSetData.HCL_SET = frm_Calculator->szValue.ToDouble() * 100.0;
+    Label8->Caption = FormatFloat("0.00",stSetData.HCL_SET / 100.0);
     TypeConversion(&stSetData);
     frm_RGB_X_Main->Make_SendMessage(CMD_UCL_SET_LCL,sizeof(UCL_SET_DATA),(char*)&stSetData);
     TypeConversion(&stSetData);
@@ -195,8 +195,8 @@ void __fastcall Tfrm_SettingParameter::WCImageButton10Click(
   frm_Calculator->Left = this->Left + 520;;
   frm_Calculator->Label1->Caption = Label9->Caption;
   if (frm_Calculator->ShowModal()==mrOk) {   //
-    Label9->Caption = frm_Calculator->szValue;
     stSetData.HCL_LCL = frm_Calculator->szValue.ToDouble() * 100.0;
+    Label9->Caption = FormatFloat("0.00",stSetData.HCL_LCL / 100.0);
     TypeConversion(&stSetData);
     frm_RGB_X_Main->Make_SendMessage(CMD_UCL_SET_LCL,sizeof(UCL_SET_DATA),(char*)&stSetData);
     TypeConversion(&stSetData);
@@ -211,8 +211,9 @@ void __fastcall Tfrm_SettingParameter::WCImageButton11Click(
   frm_Calculator->Left = this->Left + 720;;
   frm_Calculator->Label1->Caption = Label10->Caption;
   if (frm_Calculator->ShowModal()==mrOk) {   //
-    Label10->Caption = frm_Calculator->szValue;
+//    Label10->Caption = frm_Calculator->szValue;
     stSetData.SG_UCL = frm_Calculator->szValue.ToDouble() * 1000.0;
+    Label10->Caption = FormatFloat("0.000",stSetData.SG_UCL / 1000.0);
     TypeConversion(&stSetData);
     frm_RGB_X_Main->Make_SendMessage(CMD_UCL_SET_LCL,sizeof(UCL_SET_DATA),(char*)&stSetData);
     TypeConversion(&stSetData);
@@ -227,8 +228,9 @@ void __fastcall Tfrm_SettingParameter::WCImageButton12Click(
   frm_Calculator->Left = this->Left + 720;;
   frm_Calculator->Label1->Caption = Label11->Caption;
   if (frm_Calculator->ShowModal()==mrOk) {   //
-    Label11->Caption = frm_Calculator->szValue;
+//    Label11->Caption = frm_Calculator->szValue;
     stSetData.SG_SET = frm_Calculator->szValue.ToDouble() * 1000.0;
+    Label11->Caption = FormatFloat("0.000",stSetData.SG_SET / 1000.0);
     TypeConversion(&stSetData);
     frm_RGB_X_Main->Make_SendMessage(CMD_UCL_SET_LCL,sizeof(UCL_SET_DATA),(char*)&stSetData);
     TypeConversion(&stSetData);
@@ -243,8 +245,9 @@ void __fastcall Tfrm_SettingParameter::WCImageButton13Click(
   frm_Calculator->Left = this->Left + 720;;
   frm_Calculator->Label1->Caption = Label12->Caption;
   if (frm_Calculator->ShowModal()==mrOk) {   //
-    Label12->Caption = frm_Calculator->szValue;
+//    Label12->Caption = frm_Calculator->szValue;
     stSetData.SG_LCL = frm_Calculator->szValue.ToDouble() * 1000.0;
+    Label12->Caption = FormatFloat("0.000",stSetData.SG_LCL / 1000.0);
     TypeConversion(&stSetData);
     frm_RGB_X_Main->Make_SendMessage(CMD_UCL_SET_LCL,sizeof(UCL_SET_DATA),(char*)&stSetData);
     TypeConversion(&stSetData);
@@ -259,8 +262,9 @@ void __fastcall Tfrm_SettingParameter::WCImageButton14Click(
   frm_Calculator->Left = this->Left + 540;;
   frm_Calculator->Label1->Caption = Label13->Caption;
   if (frm_Calculator->ShowModal()==mrOk) {   //
-    Label13->Caption = frm_Calculator->szValue;
+//    Label13->Caption = frm_Calculator->szValue;
     stSetData.TEMP_UCL = frm_Calculator->szValue.ToDouble() * 10.0;
+    Label13->Caption = FormatFloat("00.0",stSetData.TEMP_UCL / 10.0);
     TypeConversion(&stSetData);
     frm_RGB_X_Main->Make_SendMessage(CMD_UCL_SET_LCL,sizeof(UCL_SET_DATA),(char*)&stSetData);
     TypeConversion(&stSetData);
@@ -276,8 +280,9 @@ void __fastcall Tfrm_SettingParameter::WCImageButton16Click(
   frm_Calculator->Left = this->Left + 540;;
   frm_Calculator->Label1->Caption = Label15->Caption;
   if (frm_Calculator->ShowModal()==mrOk) {   //
-    Label15->Caption = frm_Calculator->szValue;
+//    Label15->Caption = frm_Calculator->szValue;
     stSetData.TEMP_LCL = frm_Calculator->szValue.ToDouble() * 10.0;
+    Label15->Caption = FormatFloat("00.0",stSetData.TEMP_LCL / 10.0);
     TypeConversion(&stSetData);
     frm_RGB_X_Main->Make_SendMessage(CMD_UCL_SET_LCL,sizeof(UCL_SET_DATA),(char*)&stSetData);
     TypeConversion(&stSetData);

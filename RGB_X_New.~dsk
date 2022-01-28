@@ -1,18 +1,19 @@
 [Closed Files]
-File_0=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraphPopup.cpp',0,1,1,1,1,1,0
-File_1=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingPopup.cpp',0,1,1,1,1,1,0
-File_2=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraph_Y_Axis.cpp',0,1,28,86,43,1,0
-File_3=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraphExcel.cpp',0,1,1,1,1,1,0
-File_4=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraphUsage.cpp',0,1,1,1,1,1,0
-File_5=SourceModule,'D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmGraph_Y_Axis.cpp',0,1,28,66,91,1,0
-File_6=SourceModule,'D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmGraphUsage.cpp',0,1,1,1,1,1,0
-File_7=SourceModule,'D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmSettingParameter.cpp',0,1,373,124,42,1,0
+File_0=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmDataAnalysis.cpp',0,1,115,1,138,1,0
+File_1=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraphPopup.cpp',0,1,1,1,1,1,0
+File_2=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingPopup.cpp',0,1,1,1,1,1,0
+File_3=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraph_Y_Axis.cpp',0,1,28,86,43,1,0
+File_4=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraphExcel.cpp',0,1,1,1,1,1,0
+File_5=SourceModule,'D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraphUsage.cpp',0,1,1,1,1,1,0
+File_6=SourceModule,'D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmGraph_Y_Axis.cpp',0,1,28,66,91,1,0
+File_7=SourceModule,'D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmGraphUsage.cpp',0,1,1,1,1,1,0
+File_8=SourceModule,'D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmSettingParameter.cpp',0,1,373,124,42,1,0
 
 [Modules]
 Module0=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingRange.cpp
-Module1=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmRGB_X_Main.cpp
-Module2=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingParameter.cpp
-Module3=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmDataAnalysis.cpp
+Module1=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingParameter.cpp
+Module2=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmRGB_X_Main.cpp
+Module3=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmCalculator.cpp
 Module4=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\UserDefine.h
 Count=5
 EditWindowCount=1
@@ -22,17 +23,17 @@ ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmRGB_X_Main.cpp]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
 [D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingParameter.cpp]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmDataAnalysis.cpp]
+[D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmRGB_X_Main.cpp]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmCalculator.cpp]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
@@ -52,7 +53,7 @@ FormOnTop=0
 
 [EditWindow0]
 ViewCount=5
-CurrentView=1
+CurrentView=2
 View0=0
 View1=1
 View2=2
@@ -78,34 +79,34 @@ LeftPanelData=000004000000000000000000000000000000000000000000000100000000000000
 RightPanelSize=0
 BottomPanelSize=0
 BottomPanelClients=MessageView@EditWindow0
-BottomPanelData=00000400010000000B0000004D65737361676556696577E006000000000000025500000000000000010000000000000000000000000100000000E0060000000000000100000000E00600000B0000004D65737361676556696577FFFFFFFF
+BottomPanelData=00000400010000000B0000004D65737361676556696577E006000000000000025500000000000000010000000000000000000000000100000000E0060000000000000100000000E006000000000000FFFFFFFF
 
 [View0]
 Module=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmRGB_X_Main.cpp
 CursorX=1
-CursorY=956
-TopLine=953
+CursorY=940
+TopLine=937
 LeftCol=1
 
 [View1]
-Module=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingRange.cpp
-CursorX=33
-CursorY=38
-TopLine=16
-LeftCol=1
-
-[View2]
 Module=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingParameter.cpp
 CursorX=36
 CursorY=302
 TopLine=274
 LeftCol=1
 
+[View2]
+Module=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingRange.cpp
+CursorX=36
+CursorY=56
+TopLine=148
+LeftCol=1
+
 [View3]
-Module=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmDataAnalysis.cpp
-CursorX=1
-CursorY=138
-TopLine=115
+Module=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmCalculator.cpp
+CursorX=28
+CursorY=41
+TopLine=25
 LeftCol=1
 
 [View4]

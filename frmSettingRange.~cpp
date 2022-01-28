@@ -49,11 +49,11 @@ void __fastcall Tfrm_SettingRange::FormShow(TObject *Sender)
     Label5->Caption = IntToStr(stDeviceConfig.ORP_Top);
     Label6->Caption = IntToStr(stDeviceConfig.ORP_Bottom);
   } else if (iDataCode==0x03) {
-    Label2->Caption = FormatFloat("00.00",stSetData.HCL_UCL / 100.0);
-    Label3->Caption = FormatFloat("00.00",stSetData.HCL_SET / 100.0);
-    Label4->Caption = FormatFloat("00.00",stSetData.HCL_LCL / 100.0);
-    Label5->Caption = FormatFloat("00.00",stDeviceConfig.HCL_Top / 100.0);
-    Label6->Caption = FormatFloat("00.00",stDeviceConfig.HCL_Bottom / 100.0);
+    Label2->Caption = FormatFloat("0.00",stSetData.HCL_UCL / 100.0);
+    Label3->Caption = FormatFloat("0.00",stSetData.HCL_SET / 100.0);
+    Label4->Caption = FormatFloat("0.00",stSetData.HCL_LCL / 100.0);
+    Label5->Caption = FormatFloat("0.00",stDeviceConfig.HCL_Top / 100.0);
+    Label6->Caption = FormatFloat("0.00",stDeviceConfig.HCL_Bottom / 100.0);
   } else if (iDataCode==0x04) {
     Label2->Caption = FormatFloat("0.000",stSetData.SG_UCL / 1000.0);
     Label3->Caption = FormatFloat("0.000",stSetData.SG_SET / 1000.0);

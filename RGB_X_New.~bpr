@@ -11,7 +11,7 @@
       frmGraphUsage.obj frmGraphExcel.obj frmSettingMenu.obj 
       frmSettingParameter.obj frmSettingCompensation.obj frmSettingControl.obj 
       frmSettingSensorChange.obj frmSettingMaster.obj frmPasswordLogin.obj 
-      TypeConversion.obj"/>
+      TypeConversion.obj frmGraphPopup.obj frmSettingPopup.obj"/>
     <RESFILES value="RGB_X_New.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
@@ -21,7 +21,8 @@
       frmGraphMenu.dfm frmDataAnalysis.dfm frmCompanyTitle.dfm 
       frmGraph_Y_Axis.dfm frmGraphUsage.dfm frmGraphExcel.dfm frmSettingMenu.dfm 
       frmSettingParameter.dfm frmSettingCompensation.dfm frmSettingControl.dfm 
-      frmSettingSensorChange.dfm frmSettingMaster.dfm frmPasswordLogin.dfm"/>
+      frmSettingSensorChange.dfm frmSettingMaster.dfm frmPasswordLogin.dfm 
+      frmGraphPopup.dfm frmSettingPopup.dfm"/>
     <LIBFILES value="sqlite3.lib"/>
     <LIBRARIES value="tee.lib dclocx.lib bdertl.lib VclSmp.lib vcldb.lib dbrtl.lib vclx.lib 
       tmsc6.lib CPortLibCB6.lib vcwb6.lib WCC6.lib rtl.lib vcl.lib"/>
@@ -94,6 +95,8 @@
       <FILE FILENAME="frmSettingMaster.cpp" FORMNAME="frm_SettingMaster" UNITNAME="frmSettingMaster" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="frmPasswordLogin.cpp" FORMNAME="frm_PasswordLogin" UNITNAME="frmPasswordLogin" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="TypeConversion.cpp" FORMNAME="" UNITNAME="TypeConversion" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmGraphPopup.cpp" FORMNAME="frm_GraphPopup" UNITNAME="frmGraphPopup" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="frmSettingPopup.cpp" FORMNAME="frm_SettingPopup" UNITNAME="frmSettingPopup" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>

@@ -63,6 +63,12 @@ void __fastcall Tfrm_RGB_X_Main::WCImageButton1Click(TObject *Sender)
 }
 
 //---------------------------------------------------------------------------
+void __fastcall Tfrm_RGB_X_Main::WCImageButton15Click(TObject *Sender)
+{
+  Application->Minimize();
+}
+
+//---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 void __fastcall Tfrm_RGB_X_Main::DeviceClient_Config_Load()
 {
@@ -233,7 +239,7 @@ void __fastcall Tfrm_RGB_X_Main::FormCreate(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall Tfrm_RGB_X_Main::WaveDisplay_BasicSetting(TImage *pBufImg,int iSeq,double UCL,double LCL,double SET,double Top,double Bottom)
 {
-  int   iHeight,iWidth,i,iPx,iPy,iPosition,iSetPos;
+  int   iHeight,iWidth,i,iPx,iPy,iPosition,iSetPos,iMoveMark;
   char  szBuf[1024];
 
   iWidth  = PaintBox1->Width;
@@ -318,12 +324,21 @@ void __fastcall Tfrm_RGB_X_Main::WaveDisplay_BasicSetting(TImage *pBufImg,int iS
   }
 // TEMP Graph Set Basis on Set Position
   if (iSeq==0x05) {
+    iMoveMark = 0;
     pBufImg->Canvas->Pen->Color = clRed;
     for(i=0;i<iWidth;i++) {
       if (stDeviceConfig.Graph_TEMP[i] != 0) {
         iPosition = iHeight - ((((stDeviceConfig.Graph_TEMP[i]/10.0)-Bottom) * iHeight) / (double)(Top-Bottom));
-        pBufImg->Canvas->MoveTo(i,iSetPos);
-        pBufImg->Canvas->LineTo(i,iPosition);
+        if (iMoveMark==0x00) {
+          pBufImg->Canvas->MoveTo(i,iPosition);
+          iMoveMark = 0x01;
+        } else {
+          pBufImg->Canvas->LineTo(i,iPosition);
+        }
+//        pBufImg->Canvas->MoveTo(i,iSetPos);
+//        pBufImg->Canvas->LineTo(i,iPosition);
+      } else {
+        iMoveMark = 0;
       }
     }
   }
@@ -854,8 +869,8 @@ void __fastcall Tfrm_RGB_X_Main::WCImageButton3Click(TObject *Sender)
 //  frm_GraphMenu->Left = this->Left + 450;
 //  frm_GraphMenu->Top  = this->Top + 150;
 //  frm_GraphMenu->ShowModal();
-  frm_GraphPopup->Left = this->Left + 470;
-  frm_GraphPopup->Top  = this->Top + 200;
+  frm_GraphPopup->Left = this->Left + 390;
+  frm_GraphPopup->Top  = this->Top + 150;
   frm_GraphPopup->ShowModal();
 }
 
@@ -868,8 +883,8 @@ void __fastcall Tfrm_RGB_X_Main::WCImageButton2Click(TObject *Sender)
 //  frm_SettingMenu->Left = this->Left + 210;
 //  frm_SettingMenu->Top  = this->Top + 150;
 //  frm_SettingMenu->ShowModal();
-  frm_SettingPopup->Left = this->Left + 470;
-  frm_SettingPopup->Top  = this->Top + 200;
+  frm_SettingPopup->Left = this->Left + 390;
+  frm_SettingPopup->Top  = this->Top + 150;
   frm_SettingPopup->ShowModal();
 }
 
@@ -1035,6 +1050,7 @@ void Tfrm_RGB_X_Main::LogMessage_Printf(const char *pFormat, ...)
   }
   fclose(fp);
 }
+
 
 
 

@@ -40,7 +40,7 @@ void __fastcall Tfrm_Graph_Y_Axis::FormShow(TObject *Sender)
       Label3->Caption = IntToStr(GetPrivateProfileInt("GRAPH_Y","RGB_Bottom",20,szFileName));
     } else if (iDataCode==0x01) {
       Label2->Caption = IntToStr(GetPrivateProfileInt("GRAPH_Y","ORP_Top",600,szFileName));
-      Label3->Caption = IntToStr(GetPrivateProfileString("GRAPH_Y","ORP_Bottom" ,"450",szBuffer,1024,szFileName));
+      Label3->Caption = IntToStr(GetPrivateProfileInt("GRAPH_Y","ORP_Bottom",450,szFileName));
     } else if (iDataCode==0x02) {
       GetPrivateProfileString("GRAPH_Y","HCL_Top" ,"1.20",szBuffer,1024,szFileName);
       Label2->Caption = szBuffer;

@@ -67,6 +67,7 @@ __published:	// IDE-managed Components
   TTimer *CommRxTimer;
   TWCImageButton *WCImageButton14;
   TTimer *CommTxTimer;
+  TWCImageButton *WCImageButton15;
   void __fastcall WCImageButton1Click(TObject *Sender);
   void __fastcall Timer1Timer(TObject *Sender);
         void __fastcall FormCreate(TObject *Sender);
@@ -104,6 +105,7 @@ __published:	// IDE-managed Components
   void __fastcall Action1Execute(TObject *Sender);
   void __fastcall CommRxTimerTimer(TObject *Sender);
   void __fastcall CommTxTimerTimer(TObject *Sender);
+  void __fastcall WCImageButton15Click(TObject *Sender);
 private:	// User declarations
   TImage          *pBufImage;
   int             iAutoMode;    // 0x00:Manual , 0x01:Auto

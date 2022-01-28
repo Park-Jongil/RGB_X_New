@@ -1,6 +1,6 @@
 object frm_SettingRange: Tfrm_SettingRange
-  Left = 1285
-  Top = 338
+  Left = 1224
+  Top = 280
   BorderStyle = bsNone
   Caption = 'frm_SettingRange'
   ClientHeight = 466

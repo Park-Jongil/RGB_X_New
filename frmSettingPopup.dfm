@@ -1,11 +1,11 @@
 object frm_SettingPopup: Tfrm_SettingPopup
-  Left = 760
-  Top = 675
+  Left = 870
+  Top = 243
   BorderStyle = bsNone
   Caption = 'frm_SettingPopup'
-  ClientHeight = 432
-  ClientWidth = 500
-  Color = clBtnFace
+  ClientHeight = 601
+  ClientWidth = 609
+  Color = clBackground
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -17,11 +17,10 @@ object frm_SettingPopup: Tfrm_SettingPopup
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
-    Left = 0
-    Top = 0
+    Left = 62
+    Top = 80
     Width = 500
     Height = 432
-    Align = alClient
     Picture.Data = {
       0A544A504547496D616765425F0100FFD8FFE000104A46494600010001009600
       960000FFFE001F4C45414420546563686E6F6C6F6769657320496E632E205631

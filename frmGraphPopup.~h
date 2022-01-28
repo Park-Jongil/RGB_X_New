@@ -15,7 +15,6 @@ class Tfrm_GraphPopup : public TForm
 {
 __published:	// IDE-managed Components
   TImage *Image1;
-  TLabel *Label1;
   void __fastcall FormShow(TObject *Sender);
   void __fastcall Image1DblClick(TObject *Sender);
   void __fastcall Image1MouseDown(TObject *Sender, TMouseButton Button,
