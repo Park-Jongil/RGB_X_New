@@ -1,6 +1,6 @@
 object frm_Graph_Y_Axis: Tfrm_Graph_Y_Axis
-  Left = 1076
-  Top = 393
+  Left = 1379
+  Top = 425
   BorderStyle = bsNone
   Caption = 'frm_Graph_Y_Axis'
   ClientHeight = 266

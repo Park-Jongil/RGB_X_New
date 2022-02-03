@@ -43,19 +43,19 @@ void __fastcall Tfrm_Graph_Y_Axis::FormShow(TObject *Sender)
       Label3->Caption = IntToStr(GetPrivateProfileInt("GRAPH_Y","ORP_Bottom",450,szFileName));
     } else if (iDataCode==0x02) {
       GetPrivateProfileString("GRAPH_Y","HCL_Top" ,"1.20",szBuffer,1024,szFileName);
-      Label2->Caption = szBuffer;
+      Label2->Caption = FormatFloat("0.00",atof(szBuffer));
       GetPrivateProfileString("GRAPH_Y","HCL_Bottom" ,"0.40",szBuffer,1024,szFileName);
-      Label3->Caption = szBuffer;
+      Label3->Caption = FormatFloat("0.00",atof(szBuffer));
     } else if (iDataCode==0x03) {
       GetPrivateProfileString("GRAPH_Y","SG_Top" ,"1.400",szBuffer,1024,szFileName);
-      Label2->Caption = szBuffer;
+      Label2->Caption = FormatFloat("0.000",atof(szBuffer));
       GetPrivateProfileString("GRAPH_Y","SG_Bottom" ,"1.280",szBuffer,1024,szFileName);
-      Label3->Caption = szBuffer;
+      Label3->Caption = FormatFloat("0.000",atof(szBuffer));;
     } else if (iDataCode==0x04) {
       GetPrivateProfileString("GRAPH_Y","TEMP_Top" ,"55.0",szBuffer,1024,szFileName);
-      Label2->Caption = szBuffer;
+      Label2->Caption = FormatFloat("00.0",atof(szBuffer));;
       GetPrivateProfileString("GRAPH_Y","TEMP_Bottom" ,"45.0",szBuffer,1024,szFileName);
-      Label3->Caption = szBuffer;
+      Label3->Caption = FormatFloat("00.0",atof(szBuffer));;
     }
   } catch(...) {
   }

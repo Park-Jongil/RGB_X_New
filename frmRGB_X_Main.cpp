@@ -361,42 +361,48 @@ void __fastcall Tfrm_RGB_X_Main::WaveDisplay_BasicSetting(TImage *pBufImg,int iS
     pBufImg->Canvas->Pen->Style = psSolid;
     pBufImg->Canvas->MoveTo(0,iPosition);
     pBufImg->Canvas->LineTo(iWidth-1,iPosition);
+    pBufImg->Canvas->Font->Color = clRed;
     if (iSeq==0x01 || iSeq==0x02) sprintf(szBuf,"UCL=%4d",(int)UCL);
     if (iSeq==0x03) sprintf(szBuf,"UCL=%5.2f",UCL);
     if (iSeq==0x04) sprintf(szBuf,"UCL=%5.3f",UCL);
     if (iSeq==0x05) sprintf(szBuf,"UCL=%5.1f",UCL);
-    pBufImg->Canvas->TextOutA(5,iPosition+1,szBuf);
+    pBufImg->Canvas->TextOutA(2,iPosition-6,szBuf);
   } catch(...) {
   }
 // LCL Line Draw
   try {
     iPosition = (iHeight-1) - (((LCL-Bottom) * iHeight) / (double)(Top-Bottom));
-    pBufImg->Canvas->Pen->Color = clGreen;
+    pBufImg->Canvas->Pen->Color = clYellow;
     pBufImg->Canvas->Pen->Style = psSolid;
     pBufImg->Canvas->MoveTo(0,iPosition);
     pBufImg->Canvas->LineTo(iWidth-1,iPosition);
+    pBufImg->Canvas->Font->Color = clYellow;
     if (iSeq==0x01 || iSeq==0x02) sprintf(szBuf,"LCL=%4d",(int)LCL);
     if (iSeq==0x03) sprintf(szBuf,"LCL=%5.2f",LCL);
     if (iSeq==0x04) sprintf(szBuf,"LCL=%5.3f",LCL);
     if (iSeq==0x05) sprintf(szBuf,"LCL=%5.1f",LCL);
-    pBufImg->Canvas->TextOutA(5,iPosition-14,szBuf);
+    pBufImg->Canvas->TextOutA(2,iPosition-6,szBuf);
   } catch(...) {
   }
 // SET Line Draw
   try {
-    iSetPos = iHeight - (((SET-Bottom) * iHeight) / (double)(Top-Bottom));
-    pBufImg->Canvas->Pen->Color = clYellow;
-    pBufImg->Canvas->Pen->Style = psSolid;
-    pBufImg->Canvas->MoveTo(0,iSetPos);
-    pBufImg->Canvas->LineTo(iWidth-1,iSetPos);
-    if (iSeq==0x01 || iSeq==0x02) sprintf(szBuf,"SET=%4d",(int)SET);
-    if (iSeq==0x03) sprintf(szBuf,"SET=%5.2f",SET);
-    if (iSeq==0x04) sprintf(szBuf,"SET=%5.3f",SET);
-    if (iSeq!=0x05) pBufImg->Canvas->TextOutA(5,iSetPos+1,szBuf);
+    if (iSeq!=0x05) {
+      iSetPos = iHeight - (((SET-Bottom) * iHeight) / (double)(Top-Bottom));
+      pBufImg->Canvas->Pen->Color = clGreen;
+      pBufImg->Canvas->Pen->Style = psSolid;
+      pBufImg->Canvas->MoveTo(0,iSetPos);
+      pBufImg->Canvas->LineTo(iWidth-1,iSetPos);
+      pBufImg->Canvas->Font->Color = clGreen;
+      if (iSeq==0x01 || iSeq==0x02) sprintf(szBuf,"SET=%4d",(int)SET);
+      if (iSeq==0x03) sprintf(szBuf,"SET=%5.2f",SET);
+      if (iSeq==0x04) sprintf(szBuf,"SET=%5.3f",SET);
+      pBufImg->Canvas->TextOutA(2,iSetPos-6,szBuf);
+    }
   } catch(...) {
   }
 
   try {
+    pBufImg->Canvas->Font->Color = clYellow;
     pBufImg->Canvas->Pen->Color = clGray;
     pBufImg->Canvas->Pen->Style =  psDot;
     for(i=0;i<6;i++) {
@@ -405,7 +411,7 @@ void __fastcall Tfrm_RGB_X_Main::WaveDisplay_BasicSetting(TImage *pBufImg,int iS
       if (iSeq==0x03) sprintf(szBuf,"%5.2f",(Bottom+((5-i)*(Top-Bottom)/5.0)));
       if (iSeq==0x04) sprintf(szBuf,"%5.3f",(Bottom+((5-i)*(Top-Bottom)/5.0)));
       if (iSeq==0x05) sprintf(szBuf,"%5.1f",(Bottom+((5-i)*(Top-Bottom)/5.0)));
-      pBufImg->Canvas->TextOutA(iWidth-30,iPosition-14,szBuf);
+      pBufImg->Canvas->TextOutA(iWidth-30,iPosition-6,szBuf);
     }
   } catch(...) {
   }

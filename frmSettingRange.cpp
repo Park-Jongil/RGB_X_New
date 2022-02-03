@@ -119,8 +119,9 @@ void __fastcall Tfrm_SettingRange::WCImageButton6Click(TObject *Sender)
   }
   TypeConversion(&stSetData);
   frm_RGB_X_Main->Make_SendMessage(CMD_UCL_SET_LCL,sizeof(UCL_SET_DATA),(char*)&stSetData);     // Request Device Status
+  TypeConversion(&stSetData);
   Sleep(100);
-  frm_RGB_X_Main->Make_SendMessage(CMD_STATUS_DATA,0x01,szSendData);     // Request Device Status
+//  frm_RGB_X_Main->Make_SendMessage(CMD_STATUS_DATA,0x01,szSendData);     // Request Device Status
   Close();
 }
 //---------------------------------------------------------------------------
