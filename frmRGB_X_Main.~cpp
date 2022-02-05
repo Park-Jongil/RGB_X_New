@@ -411,7 +411,7 @@ void __fastcall Tfrm_RGB_X_Main::WaveDisplay_BasicSetting(TImage *pBufImg,int iS
       if (iSeq==0x03) sprintf(szBuf,"%5.2f",(Bottom+((5-i)*(Top-Bottom)/5.0)));
       if (iSeq==0x04) sprintf(szBuf,"%5.3f",(Bottom+((5-i)*(Top-Bottom)/5.0)));
       if (iSeq==0x05) sprintf(szBuf,"%5.1f",(Bottom+((5-i)*(Top-Bottom)/5.0)));
-      pBufImg->Canvas->TextOutA(iWidth-30,iPosition-14,szBuf);
+      pBufImg->Canvas->TextOutA(iWidth-30,iPosition-6,szBuf);
     }
   } catch(...) {
   }
