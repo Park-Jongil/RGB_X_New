@@ -9,18 +9,13 @@ File_6=SourceModule,'D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmSettingParamete
 File_7=SourceModule,'D:\Source\WorkCPP\Work2021\96. RGB_X_New\frmGraph_Y_Axis.cpp',0,1,45,1,70,1,0
 
 [Modules]
-Module0=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmRGB_X_Main.cpp
-Module1=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmDataAnalysis.cpp
-Module2=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingRange.cpp
-Module3=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraph_Y_Axis.cpp
+Module0=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmDataAnalysis.cpp
+Module1=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmSettingRange.cpp
+Module2=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraph_Y_Axis.cpp
+Module3=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmRGB_X_Main.cpp
 Module4=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\DatabaseFunction.cpp
 Count=5
 EditWindowCount=1
-
-[D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmRGB_X_Main.cpp]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
 
 [D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmDataAnalysis.cpp]
 ModuleType=SourceModule
@@ -33,6 +28,11 @@ FormState=1
 FormOnTop=0
 
 [D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmGraph_Y_Axis.cpp]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmRGB_X_Main.cpp]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
@@ -52,7 +52,7 @@ FormOnTop=0
 
 [EditWindow0]
 ViewCount=5
-CurrentView=0
+CurrentView=1
 View0=0
 View1=1
 View2=2
@@ -83,8 +83,8 @@ BottomPanelData=0000040000000000E00600000000000002550000000000000001000000000000
 [View0]
 Module=D:\Source\WorkCpp6\Work2021\96. RGB_X_New\frmRGB_X_Main.cpp
 CursorX=1
-CursorY=963
-TopLine=922
+CursorY=936
+TopLine=923
 LeftCol=1
 
 [View1]

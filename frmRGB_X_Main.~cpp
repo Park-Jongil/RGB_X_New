@@ -918,11 +918,21 @@ void __fastcall Tfrm_RGB_X_Main::WCImageButton5Click(TObject *Sender)
 
   if (iAutoMode==0x01) {    // 현재 오토모드일 경우에 변경확인 메세지를 뿌린다.
     if (frm_ChangeMode_Confirm->ShowModal()==mrOk) {   // 설정메세지 클릭시
+      Timer_SensorData->Enabled = false;
+      for(int i=0;i<100;i++) {
+        Sleep(10);
+        Application->ProcessMessages();
+      }
       ModePump.Value = stDeviceConfig.CurSensor.ModePump.Value;
       ModePump.bit8.AUTO_MANUAL = 0x00;
       szSendData[0] = ModePump.Value;
       Make_SendMessage(CMD_MODE_N_PUMP,0x01,szSendData);     // Request Device Status
       Device_Mode_Change();
+      for(int i=0;i<100;i++) {
+        Sleep(10);
+        Application->ProcessMessages();
+      }
+      Timer_SensorData->Enabled = true;
     }
   }
 }
@@ -935,11 +945,21 @@ void __fastcall Tfrm_RGB_X_Main::WCImageButton6Click(TObject *Sender)
 
   if (iAutoMode==0x00) {    // 현재 오토모드일 경우에 변경확인 메세지를 뿌린다.
     if (frm_ChangeMode_Confirm->ShowModal()==mrOk) {   // 설정메세지 클릭시
+      Timer_SensorData->Enabled = false;
+      for(int i=0;i<100;i++) {
+        Sleep(10);
+        Application->ProcessMessages();
+      }
       ModePump.Value = stDeviceConfig.CurSensor.ModePump.Value;
       ModePump.bit8.AUTO_MANUAL = 0x01;
       szSendData[0] = ModePump.Value;
       Make_SendMessage(CMD_MODE_N_PUMP,0x01,szSendData);     // Request Device Status
       Device_Mode_Change();
+      for(int i=0;i<100;i++) {
+        Sleep(10);
+        Application->ProcessMessages();
+      }
+      Timer_SensorData->Enabled = true;
     }
   }
 }
