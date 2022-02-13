@@ -2815,8 +2815,8 @@ object frm_GraphExcel: Tfrm_GraphExcel
     Width = 754
     Height = 403
     Cursor = crDefault
-    ColCount = 9
-    DefaultColWidth = 80
+    ColCount = 10
+    DefaultColWidth = 75
     FixedCols = 0
     RowCount = 100
     Font.Charset = ANSI_CHARSET
@@ -2843,7 +2843,8 @@ object frm_GraphExcel: Tfrm_GraphExcel
       'TEMP'
       'HCL_ON'
       'OXI_ON'
-      'H2O_ON')
+      'H2O_ON'
+      'Event')
     ControlLook.FixedGradientHoverFrom = clGray
     ControlLook.FixedGradientHoverTo = clWhite
     ControlLook.FixedGradientDownFrom = clGray
@@ -2869,7 +2870,7 @@ object frm_GraphExcel: Tfrm_GraphExcel
     FilterDropDown.Font.Name = 'MS Sans Serif'
     FilterDropDown.Font.Style = []
     FilterDropDownClear = '(All)'
-    FixedColWidth = 90
+    FixedColWidth = 75
     FixedRowHeight = 22
     FixedFont.Charset = ANSI_CHARSET
     FixedFont.Color = clWindowText
@@ -2913,16 +2914,6 @@ object frm_GraphExcel: Tfrm_GraphExcel
     SearchFooter.HintHighlight = 'Highlight occurrences'
     SearchFooter.MatchCaseCaption = 'Match case'
     Version = '5.8.0.2'
-    ColWidths = (
-      90
-      80
-      80
-      80
-      80
-      80
-      80
-      80
-      80)
   end
   object WCImageButton1: TWCImageButton
     Left = 425

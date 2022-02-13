@@ -1,6 +1,6 @@
 object frm_AlarmWindow: Tfrm_AlarmWindow
-  Left = 711
-  Top = 659
+  Left = 1497
+  Top = 843
   BorderStyle = bsNone
   Caption = 'frm_AlarmWindow'
   ClientHeight = 256
