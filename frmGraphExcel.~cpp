@@ -1,5 +1,6 @@
 //---------------------------------------------------------------------------
 #include <stdio.h>
+#include <vector.h>
 #include <vcl.h>
 #pragma hdrstop
 
@@ -16,6 +17,7 @@
 Tfrm_GraphExcel *frm_GraphExcel;
 //---------------------------------------------------------------------------
 extern  DeviceStatistics    stSensorData[1440];   // 통계데이터를 위한 변수
+extern  std::vector<QueryData> vResultData;
 //---------------------------------------------------------------------------
 __fastcall Tfrm_GraphExcel::Tfrm_GraphExcel(TComponent* Owner)
   : TForm(Owner)
@@ -45,8 +47,9 @@ void __fastcall Tfrm_GraphExcel::WCImageButton6Click(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall Tfrm_GraphExcel::DateTimePicker1Change(TObject *Sender)
 {
-  int   iResult,iYear;
-  char  szCheckDate[64],szTemp[128];
+  int   iResult,iYear,iHour,iMin;
+  char  szCheckDate[64],szTemp[128],szBuffer[1024];
+  char  szStartDate[64],szFinalDate[64];
 
   strcpy(szCheckDate,DateTimePicker1->Date.FormatString("yyyy-mm-dd").c_str());
   iYear = StrToInt(DateTimePicker1->Date.FormatString("yyyy"));
@@ -72,6 +75,29 @@ void __fastcall Tfrm_GraphExcel::DateTimePicker1Change(TObject *Sender)
     AdvStringGrid1->RowCount = 2;
     for(int i=0;i<9;i++) AdvStringGrid1->Cells[i][1] = "";
   }
+// Event를 확인하기 위한 부분
+  strcpy(szStartDate,DateTimePicker1->Date.FormatString("yyyy-mm-dd").c_str());
+  strcpy(szFinalDate,DateTimePicker1->Date.FormatString("yyyy-mm-dd").c_str());
+  strcat(szStartDate," 00:00:00");
+  strcat(szFinalDate," 23:59:59");
+  iResult = DataBase_EventLog_Search_byDateTime(szStartDate,szFinalDate);
+  if (iResult != 0x00) {
+    memset(szBuffer,0x00,sizeof(szBuffer));
+    for(std::vector<QueryData>::size_type i = 0; i < vResultData.size(); i++) {
+      strcpy(szCheckDate,vResultData[i].szCheckDate);
+      iHour = (szCheckDate[11]-'0') * 10 + (szCheckDate[12]-'0');
+      iMin  = (szCheckDate[14]-'0') * 10 + (szCheckDate[15]-'0');
+      strcpy(szBuffer,AdvStringGrid1->Cells[9][iHour*60+iMin+1].c_str());
+
+      AdvStringGrid1->Cells[9][iHour*60+iMin+1] = vResultData[i].szDescript;
+
+//      AdvStringGrid1->Cells[0][iCount+1] = vResultData[i].szCheckDate;
+//      AdvStringGrid1->Cells[1][iCount+1] = IntToStr(vResultData[i].EventCode);
+//      AdvStringGrid1->Cells[2][iCount+1] = vResultData[i].szDescript;
+    }
+  }
+
+
 }
 //---------------------------------------------------------------------------
 void __fastcall Tfrm_GraphExcel::AdvStringGrid1GetAlignment(

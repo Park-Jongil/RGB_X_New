@@ -18,7 +18,7 @@
 #define   ERROR_FRAME_ETX         0x02
 #define   ERROR_NO_COMMAND        0x03
 //---------------------------------------------------------------------------
-#define   GRAPH_MAX_BUFFER        600
+#define   GRAPH_MAX_BUFFER        570
 //---------------------------------------------------------------------------
 typedef struct  _RequestPacket {
   unsigned char   Header;         //

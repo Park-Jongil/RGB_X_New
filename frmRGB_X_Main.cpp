@@ -12,6 +12,7 @@
 #include "frmChangeMode_Confirm.h"
 #include "frmSettingRange.h"
 #include "frmAlarmWindow.h"
+#include "frmAlarmPump.h"
 #include "frmGraphMenu.h"
 #include "frmSettingMenu.h"
 #include "frmCompanyTitle.h"
@@ -47,6 +48,7 @@ __fastcall Tfrm_RGB_X_Main::Tfrm_RGB_X_Main(TComponent* Owner)
   strcpy(stDeviceConfig.szChangeCheckDate,"");
   iCommCount = 0x00;
   iAutoMode = 0x01;
+  isPumpStatus = 0x01;
 }
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
@@ -250,6 +252,7 @@ void __fastcall Tfrm_RGB_X_Main::FormCreate(TObject *Sender)
 void __fastcall Tfrm_RGB_X_Main::WaveDisplay_BasicSetting(TImage *pBufImg,int iSeq,double UCL,double LCL,double SET,double Top,double Bottom)
 {
   int   iHeight,iWidth,i,iPx,iPy,iPosition,iSetPos,iMoveMark;
+  int   iLeftStart = 40;
   char  szBuf[1024];
 
   iWidth  = PaintBox1->Width;
@@ -345,8 +348,6 @@ void __fastcall Tfrm_RGB_X_Main::WaveDisplay_BasicSetting(TImage *pBufImg,int iS
         } else {
           pBufImg->Canvas->LineTo(i,iPosition);
         }
-//        pBufImg->Canvas->MoveTo(i,iSetPos);
-//        pBufImg->Canvas->LineTo(i,iPosition);
       } else {
         iMoveMark = 0;
       }
@@ -400,7 +401,7 @@ void __fastcall Tfrm_RGB_X_Main::WaveDisplay_BasicSetting(TImage *pBufImg,int iS
     }
   } catch(...) {
   }
-
+/*
   try {
     pBufImg->Canvas->Font->Color = clYellow;
     pBufImg->Canvas->Pen->Color = clGray;
@@ -415,8 +416,32 @@ void __fastcall Tfrm_RGB_X_Main::WaveDisplay_BasicSetting(TImage *pBufImg,int iS
     }
   } catch(...) {
   }
-
+*/  
 }
+
+//---------------------------------------------------------------------------
+void __fastcall Tfrm_RGB_X_Main::SetRange_Vertical_Display(int iSeq,int iIndex,double Top,double Bottom)
+{
+  int           i;
+  char          szBuf[1024],szBuffer[1024];
+  TComponent    *ChkCtrl;
+
+  try {
+    for(i=0;i<6;i++) {
+      if (iSeq==0x01 || iSeq==0x02) sprintf(szBuf,"%4d",(int)(Bottom+((5-i)*(Top-Bottom)/5.0)));
+      if (iSeq==0x03) sprintf(szBuf,"%5.2f",(Bottom+((5-i)*(Top-Bottom)/5.0)));
+      if (iSeq==0x04) sprintf(szBuf,"%5.3f",(Bottom+((5-i)*(Top-Bottom)/5.0)));
+      if (iSeq==0x05) sprintf(szBuf,"%5.1f",(Bottom+((5-i)*(Top-Bottom)/5.0)));
+      sprintf(szBuffer,"Label%d",iIndex+i);
+      ChkCtrl = FindComponent(szBuffer);
+      if (ChkCtrl != NULL) {
+        static_cast<TLabel*>(ChkCtrl)->Caption = szBuf;
+      }
+    }
+  } catch(...) {
+  }
+}
+
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 void __fastcall Tfrm_RGB_X_Main::PaintBox1Paint(TObject *Sender)
@@ -424,6 +449,7 @@ void __fastcall Tfrm_RGB_X_Main::PaintBox1Paint(TObject *Sender)
 // RGB Graph 설정부분
   WaveDisplay_BasicSetting(pBufImage,0x01,stDeviceConfig.CurStatus.RGB_UCL,stDeviceConfig.CurStatus.RGB_LCL,stDeviceConfig.CurStatus.RGB_SET,stDeviceConfig.RGB_Top,stDeviceConfig.RGB_Bottom);
   BitBlt(PaintBox1->Canvas->Handle,0,0,PaintBox1->Width,PaintBox1->Height,pBufImage->Canvas->Handle,0,0,SRCCOPY);
+  SetRange_Vertical_Display(0x01,8,stDeviceConfig.RGB_Top,stDeviceConfig.RGB_Bottom);
 }
 //---------------------------------------------------------------------------
 
@@ -432,6 +458,7 @@ void __fastcall Tfrm_RGB_X_Main::PaintBox2Paint(TObject *Sender)
 // ORP Graph 설정부분
   WaveDisplay_BasicSetting(pBufImage,0x02,stDeviceConfig.CurStatus.ORP_UCL,stDeviceConfig.CurStatus.ORP_LCL,stDeviceConfig.CurStatus.ORP_SET,stDeviceConfig.ORP_Top,stDeviceConfig.ORP_Bottom);
   BitBlt(PaintBox2->Canvas->Handle,0,0,PaintBox2->Width,PaintBox2->Height,pBufImage->Canvas->Handle,0,0,SRCCOPY);
+  SetRange_Vertical_Display(0x02,14,stDeviceConfig.ORP_Top,stDeviceConfig.ORP_Bottom);
 }
 //---------------------------------------------------------------------------
 
@@ -440,6 +467,7 @@ void __fastcall Tfrm_RGB_X_Main::PaintBox3Paint(TObject *Sender)
 // HCL Graph 설정부분
   WaveDisplay_BasicSetting(pBufImage,0x03,stDeviceConfig.CurStatus.HCL_UCL/100.0,stDeviceConfig.CurStatus.HCL_LCL/100.0,stDeviceConfig.CurStatus.HCL_SET/100.0,stDeviceConfig.HCL_Top/100.0,stDeviceConfig.HCL_Bottom/100.0);
   BitBlt(PaintBox3->Canvas->Handle,0,0,PaintBox3->Width,PaintBox3->Height,pBufImage->Canvas->Handle,0,0,SRCCOPY);
+  SetRange_Vertical_Display(0x03,20,stDeviceConfig.HCL_Top/100.0,stDeviceConfig.HCL_Bottom/100.0);
 }
 //---------------------------------------------------------------------------
 
@@ -448,6 +476,7 @@ void __fastcall Tfrm_RGB_X_Main::PaintBox4Paint(TObject *Sender)
 // SG Graph 설정부분
   WaveDisplay_BasicSetting(pBufImage,0x04,stDeviceConfig.CurStatus.SG_UCL/1000.0,stDeviceConfig.CurStatus.SG_LCL/1000.0,stDeviceConfig.CurStatus.SG_SET/1000.0,stDeviceConfig.SG_Top/1000.0,stDeviceConfig.SG_Bottom/1000.0);
   BitBlt(PaintBox4->Canvas->Handle,0,0,PaintBox4->Width,PaintBox4->Height,pBufImage->Canvas->Handle,0,0,SRCCOPY);
+  SetRange_Vertical_Display(0x04,26,stDeviceConfig.SG_Top/1000.0,stDeviceConfig.SG_Bottom/1000.0);
 }
 //---------------------------------------------------------------------------
 
@@ -456,6 +485,7 @@ void __fastcall Tfrm_RGB_X_Main::PaintBox5Paint(TObject *Sender)
 // TEMP Graph 설정부분
   WaveDisplay_BasicSetting(pBufImage,0x05,stDeviceConfig.CurStatus.TEMP_UCL/10.0,stDeviceConfig.CurStatus.TEMP_LCL/10.0,50.0,stDeviceConfig.TEMP_Top/10.0,stDeviceConfig.TEMP_Bottom/10.0);
   BitBlt(PaintBox5->Canvas->Handle,0,0,PaintBox5->Width,PaintBox5->Height,pBufImage->Canvas->Handle,0,0,SRCCOPY);
+  SetRange_Vertical_Display(0x05,32,stDeviceConfig.TEMP_Top/10.0,stDeviceConfig.TEMP_Bottom/10.0);
 }
 //---------------------------------------------------------------------------
 
@@ -531,6 +561,7 @@ void __fastcall Tfrm_RGB_X_Main::ClientSocket1Read(TObject *Sender,
   int   iCount;
   char  szBuffer[1024];
 
+  iCommCount = 0;
   CommRxTimer->Enabled = false;
   CommunicationStatus_SetImage(0x00,0x03);
   CommRxTimer->Enabled = true;
@@ -776,7 +807,7 @@ void __fastcall Tfrm_RGB_X_Main::Protocol_Receive_SensorData(RequestPacket *pChk
     PaintBox3Paint(NULL);
     PaintBox4Paint(NULL);
     PaintBox5Paint(NULL);
-    memcpy((char*)&stDeviceConfig.PrevSensor , (char*)&stDeviceConfig.CurSensor , sizeof(SensorData));
+//    memcpy((char*)&stDeviceConfig.PrevSensor , (char*)&stDeviceConfig.CurSensor , sizeof(SensorData));
 // Mode Pump Data
     if (iAutoMode != pChkData->ModePump.bit8.AUTO_MANUAL) {
       iAutoMode = pChkData->ModePump.bit8.AUTO_MANUAL != 0x00 ? 1 : 0;
@@ -811,6 +842,17 @@ void __fastcall Tfrm_RGB_X_Main::Protocol_AlarmTable_Process()
 
 // Alarm DataBase Store
   try {
+// 순환펌프 관련팝업
+    if (stDeviceConfig.CurSensor.Alarm2.bit8.CIRCURATING_PUMP != 0x00) {
+      if (isPumpStatus==0x01) {
+        if (frm_AlarmPump->Visible==false) frm_AlarmPump->Show();
+        frm_AlarmPump->BringToFront();
+      }
+    } else {
+      isPumpStatus = 0x01;
+      if (frm_AlarmPump->Visible==true) frm_AlarmPump->Close();
+    }
+// 나머지 알람들
     if (stDeviceConfig.CurSensor.Alarm1.Value!= 0x00 || stDeviceConfig.CurSensor.Alarm2.Value&0x03) {
       frm_AlarmWindow->Alarm1.Value = stDeviceConfig.CurSensor.Alarm1.Value;
       frm_AlarmWindow->Alarm2.Value = stDeviceConfig.CurSensor.Alarm2.Value;
@@ -874,6 +916,7 @@ void __fastcall Tfrm_RGB_X_Main::Protocol_AlarmTable_Process()
     }
   } catch(...) {
   }
+  memcpy((char*)&stDeviceConfig.PrevSensor , (char*)&stDeviceConfig.CurSensor , sizeof(SensorData));
 }
 
 
@@ -933,6 +976,7 @@ void __fastcall Tfrm_RGB_X_Main::WCImageButton5Click(TObject *Sender)
       szSendData[0] = ModePump.Value;
       Make_SendMessage(CMD_MODE_N_PUMP,0x01,szSendData);     // Request Device Status
       Device_Mode_Change();
+      if (isPumpStatus==0x00) isPumpStatus = 0x01;
     }
   }
 }
@@ -950,6 +994,7 @@ void __fastcall Tfrm_RGB_X_Main::WCImageButton6Click(TObject *Sender)
       szSendData[0] = ModePump.Value;
       Make_SendMessage(CMD_MODE_N_PUMP,0x01,szSendData);     // Request Device Status
       Device_Mode_Change();
+      if (isPumpStatus==0x00) isPumpStatus = 0x01;
     }
   }
 }
